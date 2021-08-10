@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jazzylee.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.6.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="CenterNet是2019年发表的文章，打破了以往的目标检测架构。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CenterNet">
+<meta property="og:url" content="https://jazzylee.github.io/2021/07/06/0004-CenterNet/index.html">
+<meta property="og:site_name" content="movice">
+<meta property="og:description" content="CenterNet是2019年发表的文章，打破了以往的目标检测架构。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-07-06T04:49:40.000Z">
+<meta property="article:modified_time" content="2021-07-09T02:46:39.573Z">
+<meta property="article:author" content="ljz">
+<meta property="article:tag" content="NN">
+<meta property="article:tag" content="CNN">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://jazzylee.github.io/2021/07/06/0004-CenterNet/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jazzylee.github.io/2021/07/06/0004-CenterNet/","path":"2021/07/06/0004-CenterNet/","title":"CenterNet"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>CenterNet | movice</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">movice</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E8%80%85%E8%A7%82%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">作者观点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Former-solutions-are-wasteful"><span class="nav-number">1.1.</span> <span class="nav-text">Former solutions are wasteful</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Model-an-object-as-a-single-point-easy-to-be-extended-to-other-tasks"><span class="nav-number">1.2.</span> <span class="nav-text">Model an object as a single point,easy to be extended to other tasks</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#point-to-bbox"><span class="nav-number">1.2.1.</span> <span class="nav-text">point to bbox</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3D-detection"><span class="nav-number">1.2.2.</span> <span class="nav-text">3D detection</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#human-pose-estimation"><span class="nav-number">1.2.3.</span> <span class="nav-text">human pose estimation</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#high-speed"><span class="nav-number">1.3.</span> <span class="nav-text">high speed</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ljz</p>
+  <div class="site-description" itemprop="description">写博客,或在写博客的路上</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+          </div>
+        </div>
+    </div>
+    <div style="display:none">
+      <!--clustrmaps-->
+      <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=V7pseSmYqG3eRqg-m6VS1UxwXHXL8gIybqq7QtBtLug&cl=ffffff&w=a"></script>
+    </div>
+    <!--music-->
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=32897951&auto=0&height=66"></iframe>
+    </iframe>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jazzylee.github.io/2021/07/06/0004-CenterNet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ljz">
+      <meta itemprop="description" content="写博客,或在写博客的路上">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="movice">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CenterNet
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-06 12:49:40" itemprop="dateCreated datePublished" datetime="2021-07-06T12:49:40+08:00">2021-07-06</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-07-09 10:46:39" itemprop="dateModified" datetime="2021-07-09T10:46:39+08:00">2021-07-09</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AF%BB%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">读论文</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AF%BB%E8%AE%BA%E6%96%87/%E6%9A%91%E6%9C%9F%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">暑期课程</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>CenterNet是2019年发表的文章，打破了以往的目标检测架构。</p>
+<span id="more"></span>
+
+<h3 id="作者观点"><a href="#作者观点" class="headerlink" title="作者观点"></a>作者观点</h3><h4 id="Former-solutions-are-wasteful"><a href="#Former-solutions-are-wasteful" class="headerlink" title="Former solutions are wasteful"></a>Former solutions are wasteful</h4><p>基于bbox的方法需要大量计算，并且需要后处理，如NMS</p>
+<blockquote>
+<p>NMS is hard to differentiate and train.</p>
+</blockquote>
+<h4 id="Model-an-object-as-a-single-point-easy-to-be-extended-to-other-tasks"><a href="#Model-an-object-as-a-single-point-easy-to-be-extended-to-other-tasks" class="headerlink" title="Model an object as a single point,easy to be extended to other tasks"></a>Model an object as a single point,easy to be extended to other tasks</h4><p>centernet和one-stage方法很有关系。</p>
+<p>输入图片：$W×H$</p>
+<blockquote>
+<p>不考虑通道数吗？</p>
+</blockquote>
+<p>目的：产生0~1之间取值【<strong>此处存疑，取值是否连续？</strong>应该是连续取值的，见本文point to bbox小节】(0表示背景，1表示检测到了keypoint)的keypoint heatmap，共有$\frac{W}{R}*\frac{H}{R}*C$个值，C表示keypoint类数，目标检测任务中，有80类，R取4。</p>
+<p>使用keypoint estimation找中心，heatmap的峰值代表物体中心。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">input--&gt;FCN--&gt;heatmap</span><br></pre></td></tr></table></figure>
+
+<p>FCN尝试了<strong>hourglass/ResNet/DLA</strong></p>
+<p>其他属性(size,3D location,orientation,<strong>pose</strong>)通过回归得到。</p>
+<ul>
+<li><p>3D目标检测</p>
+<p>depth/box size/orientation</p>
+</li>
+<li><p>多人姿态估计</p>
+<p>关节较中心的偏移</p>
+</li>
+</ul>
+<h5 id="point-to-bbox"><a href="#point-to-bbox" class="headerlink" title="point to bbox"></a>point to bbox</h5><p>每一类分别寻找峰值(peak)，【<strong>Q:全局峰值还是八邻域峰值？</strong>应该是8邻域峰值，因为同一类的heatmap里面可能用多个同类目标】</p>
+<p>$\hat{P_c}$表示检测到的某一类(记为第c类)目标的中心点<strong>集合</strong>，每一个预测的中心点记为$(\hat{x},\hat{y})$，用$\hat{Y}$在某一类heatmap某一点处的值代表检测的confidence，</p>
+<p>$\hat{O}_{\hat{x_i},\hat{y_i}}=(\delta\hat{x_i},\delta\hat{y_i})$表示预测的offset</p>
+<p>$\hat{S}_{\hat{x_i},\hat{y_i}}=(\hat{wx_i},\hat{h_i})$表示预测的size</p>
+<h5 id="3D-detection"><a href="#3D-detection" class="headerlink" title="3D detection"></a>3D detection</h5><blockquote>
+<p>数据集 KITTI</p>
+</blockquote>
+<p>每一个中心点处：预测 深度+3D尺寸+方向  =&gt;   3D bbox</p>
+<ul>
+<li>深度 scalar</li>
+<li>3D尺寸 3 scalars，以真实世界的米为单位</li>
+<li>方向 4scalars*2</li>
+</ul>
+<h5 id="human-pose-estimation"><a href="#human-pose-estimation" class="headerlink" title="human pose estimation"></a>human pose estimation</h5><p>每个人预测k个关节，使用2k个值。忽略不可见关节。</p>
+<p>对每个关节到center的偏移进行回归。</p>
+<p>评估方式:keypoint similarity</p>
+<p>问题:struggles particularly in high IoU regimes</p>
+<h4 id="high-speed"><a href="#high-speed" class="headerlink" title="high speed"></a>high speed</h4><table>
+<thead>
+<tr>
+<th>backbone</th>
+<th>fps</th>
+<th>COCO AP(%)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Resnet18</td>
+<td>142</td>
+<td>28.1</td>
+</tr>
+<tr>
+<td>DLA34</td>
+<td>52</td>
+<td>37.4</td>
+</tr>
+<tr>
+<td>Hourglass104</td>
+<td>1.4</td>
+<td>45.1</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/NN/" rel="tag"># NN</a>
+              <a href="/tags/CNN/" rel="tag"># CNN</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/04/0003-YOLO/" rel="prev" title="YOLO">
+                  <i class="fa fa-chevron-left"></i> YOLO
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/07/06/javaer/" rel="next" title="Java Basic">
+                  Java Basic <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ljz</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

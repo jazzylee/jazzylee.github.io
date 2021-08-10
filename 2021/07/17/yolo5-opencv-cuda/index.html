@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jazzylee.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.6.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="缝合怪的胜利。 记录pt转onnx，并使用cuda加速的dnn模块在C++中实现目标检测的过程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YOLOv5+OpenCV+CUDA">
+<meta property="og:url" content="https://jazzylee.github.io/2021/07/17/yolo5-opencv-cuda/index.html">
+<meta property="og:site_name" content="movice">
+<meta property="og:description" content="缝合怪的胜利。 记录pt转onnx，并使用cuda加速的dnn模块在C++中实现目标检测的过程。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://jazzylee.github.io/2021/07/17/yolo5-opencv-cuda/image-20210717180645656.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/07/17/yolo5-opencv-cuda/image-20210717180718427.png">
+<meta property="article:published_time" content="2021-07-17T08:54:07.000Z">
+<meta property="article:modified_time" content="2021-07-20T03:32:34.664Z">
+<meta property="article:author" content="ljz">
+<meta property="article:tag" content="OpenCV">
+<meta property="article:tag" content="YOLO">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jazzylee.github.io/2021/07/17/yolo5-opencv-cuda/image-20210717180645656.png">
+
+
+<link rel="canonical" href="https://jazzylee.github.io/2021/07/17/yolo5-opencv-cuda/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jazzylee.github.io/2021/07/17/yolo5-opencv-cuda/","path":"2021/07/17/yolo5-opencv-cuda/","title":"YOLOv5+OpenCV+CUDA"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>YOLOv5+OpenCV+CUDA | movice</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">movice</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#OpenCV%E7%BC%96%E8%AF%91"><span class="nav-number">1.</span> <span class="nav-text">OpenCV编译</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MinGW%E7%BC%96%E8%AF%91CPU%E7%89%88%E6%9C%AC-Pass"><span class="nav-number">1.1.</span> <span class="nav-text">MinGW编译CPU版本(Pass)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VS2017-x64%E7%BC%96%E8%AF%91CUDA%E7%89%88%E6%9C%AC"><span class="nav-number">1.2.</span> <span class="nav-text">VS2017 x64编译CUDA版本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#YOLOv5-pt%E8%BD%AConnx"><span class="nav-number">2.</span> <span class="nav-text">YOLOv5 pt转onnx</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%91%E7%B9%81%E7%9A%84%E5%A4%B1%E8%B4%A5"><span class="nav-number">2.1.</span> <span class="nav-text">频繁的失败</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%84%8F%E5%A4%96%E7%9A%84%E6%88%90%E5%8A%9F"><span class="nav-number">2.2.</span> <span class="nav-text">意外的成功</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-%E6%A3%80%E6%B5%8B%E7%A8%8B%E5%BA%8F"><span class="nav-number">3.</span> <span class="nav-text">C++检测程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yolov5s%E7%9A%84%E9%80%9F%E5%BA%A6%E5%AF%B9%E6%AF%94"><span class="nav-number">4.</span> <span class="nav-text">yolov5s的速度对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%8A%BD%E8%B1%A1%E7%9A%84%E8%BE%93%E5%87%BA"><span class="nav-number">5.</span> <span class="nav-text">一些抽象的输出</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ljz</p>
+  <div class="site-description" itemprop="description">写博客,或在写博客的路上</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+          </div>
+        </div>
+    </div>
+    <div style="display:none">
+      <!--clustrmaps-->
+      <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=V7pseSmYqG3eRqg-m6VS1UxwXHXL8gIybqq7QtBtLug&cl=ffffff&w=a"></script>
+    </div>
+    <!--music-->
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=32897951&auto=0&height=66"></iframe>
+    </iframe>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jazzylee.github.io/2021/07/17/yolo5-opencv-cuda/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ljz">
+      <meta itemprop="description" content="写博客,或在写博客的路上">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="movice">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          YOLOv5+OpenCV+CUDA
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-17 16:54:07" itemprop="dateCreated datePublished" datetime="2021-07-17T16:54:07+08:00">2021-07-17</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-07-20 11:32:34" itemprop="dateModified" datetime="2021-07-20T11:32:34+08:00">2021-07-20</time>
+      </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>缝合怪的胜利。</p>
+<p>记录pt转onnx，并使用cuda加速的dnn模块在C++中实现目标检测的过程。</p>
+<span id="more"></span>
+
+<p>使用<a target="_blank" rel="noopener" href="https://github.com/ultralytics/yolov5">YOLOv5</a>做(两类别的)目标检测，训练过程一帆风顺，并且发现了在线标注数据集的<a target="_blank" rel="noopener" href="https://www.makesense.ai/">宝藏网站</a>。</p>
+<p>但是用起来速度还是不太能满足需求，于是又训练了最mini的YOLOv5s，训练完成后pt文件只有14MB左右。因为最终的需求只需要识别两类中的一类，所以又尝试只训练单类别的目标检测，但是效果更差了，难以理解。后来尝试使用C++下的OpenCV导入模型，于是遇到了一个接一个的坑。</p>
+<h3 id="OpenCV编译"><a href="#OpenCV编译" class="headerlink" title="OpenCV编译"></a>OpenCV编译</h3><h4 id="MinGW编译CPU版本-Pass"><a href="#MinGW编译CPU版本-Pass" class="headerlink" title="MinGW编译CPU版本(Pass)"></a>MinGW编译CPU版本(Pass)</h4><p>本着VS能不用就不用的偏见，先尝试使用MinGW编译，在Qt中使用OpenCV。</p>
+<p>主要参考<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Za4y1v7ra">这个视频</a>，相关环境如下：</p>
+<blockquote>
+<p>Cmake:3.17.1</p>
+<p>OpenCV:4.5.1</p>
+<p>Qt:5.12.10</p>
+<p>MinGW:7.3.0</p>
+</blockquote>
+<p>编译过程中遇到了一个问题，神似视频里的截图，于是没看自己命令行窗口提示，按照视频里的操作了一番。终于在一个多小时后的install时发现了问题。第二遍重新编译，发现问题是：</p>
+<blockquote>
+<p>/include/c++/math.h:91:12: error: ‘std::_hypot’ has not been declared……</p>
+</blockquote>
+<p>复制报错信息，启动Chrome，，问题解决。</p>
+<h4 id="VS2017-x64编译CUDA版本"><a href="#VS2017-x64编译CUDA版本" class="headerlink" title="VS2017 x64编译CUDA版本"></a>VS2017 x64编译CUDA版本</h4><p>我的编译过程记录👇</p>
+<iframe src="//player.bilibili.com/player.html?aid=291689318&bvid=BV13f4y1j7AJ&cid=371580200&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<p>PS：全屏显示CMake的是我的窗口，视频中来回切换的画面是下面提到的两个参考视频。全程开启全局Clash，文件下载没有遇到问题，选择CUDA_ARCH_BIN时，选错了算力值，导致第一遍编译出来的只能识别出GPU，但是无法使用CUDA加速。报错提示为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: Gpu API call (no kernel image is available <span class="keyword">for</span> execution on the device) <span class="keyword">in</span> xxx</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Rp4y1a7cm">主要参考视频</a>，视频里提到feature_2d之类的在我编译时候并没有找到，视频里面没有指定CUDA_ARCH_BIN，似乎也可以？另外视频中导入了下面这些，实际使用时候发现没用到：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/cudaarithm.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/cudaoptflow.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/cudaimgproc.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/cudafeatures2d.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/cudaobjdetect.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/cudawarping.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/cudafilters.hpp&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1X5411h7EC">次要参考视频</a>，视频里只编译了Release版本，胆小，两个都编译了。</p>
+<h3 id="YOLOv5-pt转onnx"><a href="#YOLOv5-pt转onnx" class="headerlink" title="YOLOv5 pt转onnx"></a>YOLOv5 pt转onnx</h3><p>搜索OpenCV yolov5或相关的词，有一篇<a target="_blank" rel="noopener" href="https://blog.csdn.net/nihate/article/details/112731327">文章</a>上镜率奇高，在Google上搜到了它的<a target="_blank" rel="noopener" href="https://www.programmersought.com/article/63516964609/">英文翻译版本</a>是我没想到的。</p>
+<p>尝试过程中发现了一个能看网络结构的<a target="_blank" rel="noopener" href="https://netron.app/">网站</a>。</p>
+<h4 id="频繁的失败"><a href="#频繁的失败" class="headerlink" title="频繁的失败"></a>频繁的失败</h4><ul>
+<li>直接使用pt文件+yolov5给的export.py导出onnx</li>
+<li>pt转pth，再转onnx</li>
+<li>参考上文修改models文件夹下common.py中的Focus类和yolo.py中的Detect类</li>
+</ul>
+<h4 id="意外的成功"><a href="#意外的成功" class="headerlink" title="意外的成功"></a>意外的成功</h4><p>参考了下面三篇文章(<strong>只在导出ONNX时候作修改</strong>)，C++文件都给了，🐂！</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34124780/article/details/114666312">参考1</a>/<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34124780/article/details/115363855">参考2</a>/<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34124780/article/details/116464727">参考3</a></p>
+<p>common.py中修改后的Focus类如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Focus</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="comment"># Focus wh information into c-space</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, c1, c2, k=<span class="number">1</span>, s=<span class="number">1</span>, p=<span class="literal">None</span>, g=<span class="number">1</span>, act=<span class="literal">True</span></span>):</span>  <span class="comment"># ch_in, ch_out, kernel, stride, padding, groups</span></span><br><span class="line">        <span class="built_in">super</span>(Focus, self).__init__()</span><br><span class="line">        <span class="comment"># self.contract=Conv(c1 * 4, c2, k, s, p, g, act)</span></span><br><span class="line">        self.conv = Conv(c1 * <span class="number">4</span>, c2, k, s, p, g, act)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, x</span>):</span>  <span class="comment"># x(b,c,w,h) -&gt; y(b,4c,w/2,h/2)</span></span><br><span class="line">        <span class="comment"># return self.conv(torch.cat([x[..., ::2, ::2], x[..., 1::2, ::2], x[..., ::2, 1::2], x[..., 1::2, 1::2]], 1))</span></span><br><span class="line">        N, C, H, W = x.size()  <span class="comment"># assert (H / s == 0) and (W / s == 0), &#x27;Indivisible gain&#x27;</span></span><br><span class="line">        s = <span class="number">2</span></span><br><span class="line">        x = x.view(N, C, H // s, s, W // s, s)  <span class="comment"># x(1,64,40,2,40,2)</span></span><br><span class="line">        x = x.permute(<span class="number">0</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>).contiguous()  <span class="comment"># x(1,2,2,64,40,40)</span></span><br><span class="line">        y=x.view(N, C * s * s, H // s, W // s)  <span class="comment"># x(1,256,40,40)</span></span><br><span class="line">        <span class="keyword">return</span> self.conv(y)</span><br></pre></td></tr></table></figure>
+
+<p>yolo.py中修改后的Detect类如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Detect</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    stride = <span class="literal">None</span>  <span class="comment"># strides computed during build</span></span><br><span class="line">    export = <span class="literal">False</span>  <span class="comment"># onnx export</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, nc=<span class="number">80</span>, anchors=(<span class="params"></span>), ch=(<span class="params"></span>)</span>):</span>  <span class="comment"># detection layer</span></span><br><span class="line">        <span class="built_in">super</span>(Detect, self).__init__()</span><br><span class="line">        self.nc = nc  <span class="comment"># number of classes</span></span><br><span class="line">        self.no = nc + <span class="number">5</span>  <span class="comment"># number of outputs per anchor</span></span><br><span class="line">        self.nl = <span class="built_in">len</span>(anchors)  <span class="comment"># number of detection layers</span></span><br><span class="line">        self.na = <span class="built_in">len</span>(anchors[<span class="number">0</span>]) // <span class="number">2</span>  <span class="comment"># number of anchors</span></span><br><span class="line">        self.grid = [torch.zeros(<span class="number">1</span>)] * self.nl  <span class="comment"># init grid</span></span><br><span class="line">        a = torch.tensor(anchors).<span class="built_in">float</span>().view(self.nl, -<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">        self.register_buffer(<span class="string">&#x27;anchors&#x27;</span>, a)  <span class="comment"># shape(nl,na,2)</span></span><br><span class="line">        self.register_buffer(<span class="string">&#x27;anchor_grid&#x27;</span>, a.clone().view(self.nl, <span class="number">1</span>, -<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>))  <span class="comment"># shape(nl,1,na,1,1,2)</span></span><br><span class="line">        self.m = nn.ModuleList(nn.Conv2d(x, self.no * self.na, <span class="number">1</span>) <span class="keyword">for</span> x <span class="keyword">in</span> ch)  <span class="comment"># output conv</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, x</span>):</span></span><br><span class="line">        <span class="comment"># x = x.copy()  # for profiling</span></span><br><span class="line">        z = []  <span class="comment"># inference output</span></span><br><span class="line">        self.training |= self.export</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(self.nl):</span><br><span class="line">            x[i] = self.m[i](x[i])  <span class="comment"># conv</span></span><br><span class="line">            bs, _, ny, nx = x[i].shape  <span class="comment"># x(bs,255,20,20) to x(bs,3,20,20,85)</span></span><br><span class="line">            x[i] = x[i].view(bs, self.na, self.no, ny, nx).permute(<span class="number">0</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">2</span>).contiguous()</span><br><span class="line">            x[i] = x[i].view(bs * self.na * ny * nx, self.no).contiguous()</span><br><span class="line">        <span class="keyword">return</span> torch.cat(x)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_make_grid</span>(<span class="params">nx=<span class="number">20</span>, ny=<span class="number">20</span></span>):</span></span><br><span class="line">        yv, xv = torch.meshgrid([torch.arange(ny), torch.arange(nx)])</span><br><span class="line">        <span class="keyword">return</span> torch.stack((xv, yv), <span class="number">2</span>).view((<span class="number">1</span>, <span class="number">1</span>, ny, nx, <span class="number">2</span>)).<span class="built_in">float</span>()</span><br></pre></td></tr></table></figure>
+
+<p>修改完成后，再使用原版的export.py就能导出可用的onnx了。</p>
+<h3 id="C-检测程序"><a href="#C-检测程序" class="headerlink" title="C++检测程序"></a>C++检测程序</h3><p>从上面提到的参考文章里抄的，改成了我要用的双目标的检测：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;opencv2/dnn.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv::cuda;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> dnn;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Output</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> id;<span class="comment">//类别id</span></span><br><span class="line">	<span class="keyword">float</span> confidence;<span class="comment">//置信度</span></span><br><span class="line">	cv::Rect box;<span class="comment">//矩形框</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Yolo</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="function"><span class="keyword">float</span> <span class="title">Sigmoid</span><span class="params">(<span class="keyword">float</span> x)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">static_cast</span>&lt;<span class="keyword">float</span>&gt;(<span class="number">1.f</span> / (<span class="number">1.f</span> + <span class="built_in">exp</span>(-x)));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//anchors</span></span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">float</span> netAnchors[<span class="number">3</span>][<span class="number">6</span>] = &#123; &#123; <span class="number">10.0</span>, <span class="number">13.0</span>, <span class="number">16.0</span>, <span class="number">30.0</span>, <span class="number">33.0</span>, <span class="number">23.0</span> &#125;,&#123; <span class="number">30.0</span>, <span class="number">61.0</span>, <span class="number">62.0</span>, <span class="number">45.0</span>, <span class="number">59.0</span>, <span class="number">119.0</span> &#125;,&#123; <span class="number">116.0</span>, <span class="number">90.0</span>, <span class="number">156.0</span>, <span class="number">198.0</span>, <span class="number">373.0</span>, <span class="number">326.0</span> &#125; &#125;;</span><br><span class="line">	<span class="comment">//stride</span></span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">float</span> netStride[<span class="number">3</span>] = &#123; <span class="number">8.0</span>, <span class="number">16.0</span>, <span class="number">32.0</span> &#125;;</span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">int</span> netWidth = <span class="number">640</span>; <span class="comment">//网络模型输入大小</span></span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">int</span> netHeight = <span class="number">640</span>;</span><br><span class="line">        <span class="keyword">double</span> nmsThreshold = <span class="number">0.45</span>;</span><br><span class="line">        <span class="keyword">double</span> boxThreshold = <span class="number">0.35</span>;</span><br><span class="line">        <span class="keyword">double</span> classThreshold = <span class="number">0.35</span>;</span><br><span class="line">	<span class="comment">//类名</span></span><br><span class="line">        std::vector&lt;std::string&gt; className = &#123; <span class="string">&quot;class1&quot;</span>,<span class="string">&quot;class2&quot;</span> &#125;;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">readModel</span><span class="params">(dnn::Net &amp;net, std::string &amp;netPath, <span class="keyword">bool</span> isCuda)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">Detect</span><span class="params">(cv::Mat &amp;SrcImg, dnn::Net &amp;net, std::vector&lt;Output&gt; &amp;output)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">drawPred</span><span class="params">(cv::Mat &amp;img, std::vector&lt;Output&gt; result, std::vector&lt;cv::Scalar&gt; color)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Yolo::readModel</span><span class="params">(dnn::Net &amp;net, string &amp;netPath, <span class="keyword">bool</span> isCuda = <span class="literal">false</span>)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		net = <span class="built_in">readNetFromONNX</span>(netPath);</span><br><span class="line">	&#125;<span class="built_in"><span class="keyword">catch</span></span> (<span class="keyword">const</span> std::exception&amp;) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (isCuda) &#123;<span class="comment">//cuda</span></span><br><span class="line">		net.<span class="built_in">setPreferableBackend</span>(cv::dnn::DNN_BACKEND_CUDA);</span><br><span class="line">		net.<span class="built_in">setPreferableTarget</span>(cv::dnn::DNN_TARGET_CUDA);</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;	<span class="comment">//cpu</span></span><br><span class="line">		net.<span class="built_in">setPreferableBackend</span>(cv::dnn::DNN_BACKEND_DEFAULT);</span><br><span class="line">		net.<span class="built_in">setPreferableTarget</span>(cv::dnn::DNN_TARGET_CPU);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Yolo::Detect</span><span class="params">(Mat &amp;SrcImg, dnn::Net &amp;net, vector&lt;Output&gt; &amp;output)</span> </span>&#123;</span><br><span class="line">	Mat blob;</span><br><span class="line">	<span class="built_in">blobFromImage</span>(SrcImg, blob, <span class="number">1</span> / <span class="number">255.0</span>, cv::<span class="built_in">Size</span>(netWidth, netHeight), <span class="built_in">Scalar</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="literal">true</span>, <span class="literal">false</span>);</span><br><span class="line">	net.<span class="built_in">setInput</span>(blob);</span><br><span class="line">	vector&lt;Mat&gt; netOutputImg;</span><br><span class="line">	net.forward(netOutputImg, net.<span class="built_in">getUnconnectedOutLayersNames</span>());</span><br><span class="line">	vector&lt;<span class="keyword">int</span>&gt; classIds;<span class="comment">//结果id数组</span></span><br><span class="line">	vector&lt;<span class="keyword">float</span>&gt; confidences;<span class="comment">//结果每个id对应置信度数组</span></span><br><span class="line">	vector&lt;Rect&gt; boxes;<span class="comment">//每个id矩形框</span></span><br><span class="line">	<span class="keyword">float</span> ratio_h = (<span class="keyword">float</span>)SrcImg.rows / netHeight;</span><br><span class="line">	<span class="keyword">float</span> ratio_w = (<span class="keyword">float</span>)SrcImg.cols / netWidth;</span><br><span class="line">	<span class="keyword">int</span> net_width = className.<span class="built_in">size</span>() + <span class="number">5</span>;  <span class="comment">//输出的网络宽度是类别数+5</span></span><br><span class="line">	<span class="keyword">float</span>* pdata = (<span class="keyword">float</span>*)netOutputImg[<span class="number">0</span>].data;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> stride = <span class="number">0</span>; stride &lt; <span class="number">3</span>; stride++) &#123;    <span class="comment">//stride</span></span><br><span class="line">		<span class="keyword">int</span> grid_x = (<span class="keyword">int</span>)(netWidth / netStride[stride]);</span><br><span class="line">		<span class="keyword">int</span> grid_y = (<span class="keyword">int</span>)(netHeight / netStride[stride]);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> anchor = <span class="number">0</span>; anchor &lt; <span class="number">3</span>; anchor++) &#123; <span class="comment">//anchors</span></span><br><span class="line">			<span class="keyword">const</span> <span class="keyword">float</span> anchor_w = netAnchors[stride][anchor * <span class="number">2</span>];</span><br><span class="line">			<span class="keyword">const</span> <span class="keyword">float</span> anchor_h = netAnchors[stride][anchor * <span class="number">2</span> + <span class="number">1</span>];</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; grid_y; i++) &#123;</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; grid_y; j++) &#123;</span><br><span class="line">					<span class="keyword">float</span> box_score = <span class="built_in">Sigmoid</span>(pdata[<span class="number">4</span>]);<span class="comment">//获取每一行的box框中含有某个物体的概率</span></span><br><span class="line">					<span class="keyword">if</span> (box_score &gt; boxThreshold) &#123;</span><br><span class="line">						<span class="function">cv::Mat <span class="title">scores</span><span class="params">(<span class="number">1</span>, className.size(), CV_32FC1, pdata + <span class="number">5</span>)</span></span>;</span><br><span class="line">						Point classIdPoint;</span><br><span class="line">						<span class="keyword">double</span> max_class_socre;</span><br><span class="line">						cv::<span class="built_in">minMaxLoc</span>(scores, <span class="number">0</span>, &amp;max_class_socre, <span class="number">0</span>, &amp;classIdPoint);</span><br><span class="line">						max_class_socre = <span class="built_in">Sigmoid</span>((<span class="keyword">float</span>)max_class_socre);</span><br><span class="line">						<span class="keyword">if</span> (max_class_socre &gt; classThreshold) &#123;</span><br><span class="line">							<span class="comment">//rect [x,y,w,h]</span></span><br><span class="line">							<span class="keyword">float</span> x = (<span class="built_in">Sigmoid</span>(pdata[<span class="number">0</span>]) * <span class="number">2.f</span> - <span class="number">0.5f</span> + j) * netStride[stride];  <span class="comment">//x</span></span><br><span class="line">							<span class="keyword">float</span> y = (<span class="built_in">Sigmoid</span>(pdata[<span class="number">1</span>]) * <span class="number">2.f</span> - <span class="number">0.5f</span> + i) * netStride[stride];   <span class="comment">//y</span></span><br><span class="line">							<span class="keyword">float</span> w = <span class="built_in">powf</span>(<span class="built_in">Sigmoid</span>(pdata[<span class="number">2</span>]) * <span class="number">2.f</span>, <span class="number">2.f</span>) * anchor_w;   <span class="comment">//w</span></span><br><span class="line">							<span class="keyword">float</span> h = <span class="built_in">powf</span>(<span class="built_in">Sigmoid</span>(pdata[<span class="number">3</span>]) * <span class="number">2.f</span>, <span class="number">2.f</span>) * anchor_h;  <span class="comment">//h</span></span><br><span class="line">							<span class="keyword">int</span> left = (x - <span class="number">0.5</span>*w)*ratio_w;</span><br><span class="line">							<span class="keyword">int</span> top = (y - <span class="number">0.5</span>*h)*ratio_h;</span><br><span class="line">							classIds.<span class="built_in">push_back</span>(classIdPoint.x);</span><br><span class="line">							confidences.<span class="built_in">push_back</span>(max_class_socre);</span><br><span class="line">							boxes.<span class="built_in">push_back</span>(<span class="built_in">Rect</span>(left, top, <span class="built_in"><span class="keyword">int</span></span>(w*ratio_w), <span class="built_in"><span class="keyword">int</span></span>(h*ratio_h)));</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;</span><br><span class="line">					pdata += net_width;<span class="comment">//指针移到下一行</span></span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//NMS</span></span><br><span class="line">	vector&lt;<span class="keyword">int</span>&gt; nms_result;</span><br><span class="line">	<span class="built_in">NMSBoxes</span>(boxes, confidences, classThreshold, nmsThreshold, nms_result);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nms_result.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> idx = nms_result[i];</span><br><span class="line">		Output result;</span><br><span class="line">		result.id = classIds[idx];</span><br><span class="line">		result.confidence = confidences[idx];</span><br><span class="line">		result.box = boxes[idx];</span><br><span class="line">		output.<span class="built_in">push_back</span>(result);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (output.<span class="built_in">size</span>())</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//每一个id随机分配一种颜色</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Yolo::drawPred</span><span class="params">(Mat &amp;img, vector&lt;Output&gt; result, vector&lt;Scalar&gt; color)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; result.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> left, top;</span><br><span class="line">		left = result[i].box.x;</span><br><span class="line">		top = result[i].box.y;</span><br><span class="line">		<span class="keyword">int</span> color_num = i;</span><br><span class="line">		<span class="built_in">rectangle</span>(img, result[i].box, color[result[i].id], <span class="number">2</span>, <span class="number">8</span>);</span><br><span class="line">		string label = className[result[i].id] + <span class="string">&quot;:&quot;</span> + <span class="built_in">to_string</span>(result[i].confidence);</span><br><span class="line">		<span class="keyword">int</span> baseLine;</span><br><span class="line">		Size labelSize = <span class="built_in">getTextSize</span>(label, FONT_HERSHEY_SIMPLEX, <span class="number">0.5</span>, <span class="number">1</span>, &amp;baseLine);</span><br><span class="line">		top = <span class="built_in">max</span>(top, labelSize.height);</span><br><span class="line">		<span class="built_in">putText</span>(img, label, <span class="built_in">Point</span>(left, top), FONT_HERSHEY_SIMPLEX, <span class="number">1</span>, color[result[i].id], <span class="number">2</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">imshow</span>(<span class="string">&quot;res&quot;</span>, img);</span><br><span class="line">	<span class="built_in">waitKey</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	string img_path = <span class="string">&quot;path/to/image&quot;</span>;</span><br><span class="line">	string model_path = <span class="string">&quot;path/to/onnx&quot;</span>;</span><br><span class="line">	Yolo test;</span><br><span class="line">	dnn::Net net;</span><br><span class="line">	<span class="keyword">if</span> (test.<span class="built_in">readModel</span>(net, model_path, <span class="literal">true</span>)) &#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;Net loaded successfully.&quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;Net loaded error!&quot;</span> &lt;&lt; endl;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//bbox颜色</span></span><br><span class="line">	vector&lt;Scalar&gt; color;</span><br><span class="line">	color.<span class="built_in">push_back</span>(<span class="built_in">Scalar</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>));</span><br><span class="line">	color.<span class="built_in">push_back</span>(<span class="built_in">Scalar</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>));</span><br><span class="line">	vector&lt;Output&gt; result;</span><br><span class="line">	Mat img = <span class="built_in">imread</span>(img_path);</span><br><span class="line">	<span class="keyword">clock_t</span> start, end;<span class="comment">//定义clock_t变量</span></span><br><span class="line">	<span class="keyword">bool</span> detectFlag;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> c = <span class="number">0</span>; c &lt; <span class="number">20</span>; c++) &#123;</span><br><span class="line">		start = <span class="built_in">clock</span>();</span><br><span class="line">		detectFlag = test.<span class="built_in">Detect</span>(img, net, result);</span><br><span class="line">		end = <span class="built_in">clock</span>();</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;Detect time:&quot;</span> &lt;&lt; <span class="built_in"><span class="keyword">double</span></span>(end - start) / CLOCKS_PER_SEC &lt;&lt; <span class="string">&quot;s&quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (detectFlag) &#123;</span><br><span class="line">		test.<span class="built_in">drawPred</span>(img, result, color);</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;No object detected.&quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="yolov5s的速度对比"><a href="#yolov5s的速度对比" class="headerlink" title="yolov5s的速度对比"></a>yolov5s的速度对比</h3><p>使用同一张图片，检测20次(R5 4600H+GTX1650)</p>
+<table>
+<thead>
+<tr>
+<th align="center">方式</th>
+<th align="center">时间</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">pytorch+cuda+pt</td>
+<td align="center">平均70ms</td>
+<td align="center">方差小</td>
+</tr>
+<tr>
+<td align="center">opencv(Qt)+onnx</td>
+<td align="center">平均184ms</td>
+<td align="center">方差小</td>
+</tr>
+<tr>
+<td align="center">opencv(VS)+onnx</td>
+<td align="center">平均110ms</td>
+<td align="center">方差小</td>
+</tr>
+<tr>
+<td align="center">opencv(VS)+onnx+CUDA</td>
+<td align="center">后19次平均28ms</td>
+<td align="center">第一次耗时2秒多</td>
+</tr>
+<tr>
+<td align="center">opencv(python)+onnx</td>
+<td align="center">平均260ms</td>
+<td align="center">方差小</td>
+</tr>
+<tr>
+<td align="center">opencv(python)+onnx+CUDA</td>
+<td align="center">后19次平均160ms</td>
+<td align="center">第一次耗时2秒多</td>
+</tr>
+</tbody></table>
+<p>第二个和第三个的速度差距不知道是不是编译器不同造成的？</p>
+<h3 id="一些抽象的输出"><a href="#一些抽象的输出" class="headerlink" title="一些抽象的输出"></a>一些抽象的输出</h3><p><img src="./image-20210717180645656.png" alt="image-20210717180645656"></p>
+<p><img src="./image-20210717180718427.png" alt="image-20210717180718427"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/OpenCV/" rel="tag"># OpenCV</a>
+              <a href="/tags/YOLO/" rel="tag"># YOLO</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/14/JavaMmltithreading/" rel="prev" title="Java 多线程">
+                  <i class="fa fa-chevron-left"></i> Java 多线程
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/07/18/JavaAnnotationReflection/" rel="next" title="Java 注解和反射">
+                  Java 注解和反射 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ljz</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
