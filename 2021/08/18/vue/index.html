@@ -27,7 +27,7 @@
 <meta property="og:site_name" content="movice">
 <meta property="og:description" content="一篇很浅显的Vue学习笔记">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11370083-f279314aef6741db.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/format/webp">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/18/vue/webp">
 <meta property="og:image" content="https://jazzylee.github.io/2021/08/18/vue/image-20210819213458502.png">
 <meta property="og:image" content="https://jazzylee.github.io/2021/08/18/vue/image-20210819213437406.png">
 <meta property="og:image" content="https://jazzylee.github.io/2021/08/18/vue/image-20210819213749690.png">
@@ -38,11 +38,11 @@
 <meta property="og:image" content="https://jazzylee.github.io/2021/08/18/vue/image-20210820130713956.png">
 <meta property="og:image" content="https://jazzylee.github.io/2021/08/18/vue/image-20210820130650578.png">
 <meta property="article:published_time" content="2021-08-18T10:53:54.000Z">
-<meta property="article:modified_time" content="2021-08-20T05:48:04.335Z">
+<meta property="article:modified_time" content="2021-08-20T05:52:53.981Z">
 <meta property="article:author" content="ljz">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/11370083-f279314aef6741db.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/format/webp">
+<meta name="twitter:image" content="https://jazzylee.github.io/2021/08/18/vue/webp">
 
 
 <link rel="canonical" href="https://jazzylee.github.io/2021/08/18/vue/">
@@ -235,7 +235,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-20 13:48:04" itemprop="dateModified" datetime="2021-08-20T13:48:04+08:00">2021-08-20</time>
+        <time title="Modified: 2021-08-20 13:52:53" itemprop="dateModified" datetime="2021-08-20T13:52:53+08:00">2021-08-20</time>
       </span>
 
   
@@ -272,7 +272,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">    总价:&#123;&#123;totalPrice&#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">el</span>:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="attr">data</span>:&#123;</span></span><br><span class="line"><span class="javascript">            <span class="attr">price</span>:<span class="number">10</span>,</span></span><br><span class="line"><span class="javascript">            <span class="attr">amount</span>:<span class="number">10</span></span></span><br><span class="line"><span class="javascript">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="attr">computed</span>:&#123;</span></span><br><span class="line"><span class="javascript">            <span class="attr">totalPrice</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">return</span> <span class="built_in">this</span>.price*<span class="built_in">this</span>.amount;</span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    &#125;)</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="生命周期函数"><a href="#生命周期函数" class="headerlink" title="生命周期函数"></a>生命周期函数</h2><p>Vue.js有生命周期的概念，在不同的步骤提供了不同的可供编程的函数，叫做钩子函数。可以在创建Vue对象时写一些钩子函数，这样在运行到指定步骤时会执行该函数。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11370083-f279314aef6741db.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/format/webp" alt="img"></p>
+<p><img src="./webp" alt="img"></p>
 <h2 id="Axios异步通信"><a href="#Axios异步通信" class="headerlink" title="Axios异步通信"></a>Axios异步通信</h2><blockquote>
 <p>建议在<code>mounted</code>时做请求</p>
 </blockquote>
