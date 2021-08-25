@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jazzylee.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.6.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="都在接近尾声">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot入门">
+<meta property="og:url" content="https://jazzylee.github.io/2021/08/20/springboot/index.html">
+<meta property="og:site_name" content="movice">
+<meta property="og:description" content="都在接近尾声">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/20/springboot/springboot/image-20210820185908484.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/20/springboot/springboot/image-20210820190223814.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/20/springboot/springboot/image-20210820191027439.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/20/springboot/springboot/image-20210820185357221.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/20/springboot/springboot/image-20210824222323337.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/20/springboot/springboot/image-20210825144746438.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/20/springboot/springboot/image-20210825165833518.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/20/springboot/springboot/image-20210825170539182.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/20/springboot/springboot/image-20210825170711807.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/20/springboot/springboot/image-20210825170815211.png">
+<meta property="article:published_time" content="2021-08-20T06:02:11.000Z">
+<meta property="article:modified_time" content="2021-08-25T14:18:45.534Z">
+<meta property="article:author" content="ljz">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Spring">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jazzylee.github.io/2021/08/20/springboot/springboot/image-20210820185908484.png">
+
+
+<link rel="canonical" href="https://jazzylee.github.io/2021/08/20/springboot/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jazzylee.github.io/2021/08/20/springboot/","path":"2021/08/20/springboot/","title":"SpringBoot入门"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>SpringBoot入门 | movice</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">movice</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HelloWorld"><span class="nav-number">1.</span> <span class="nav-text">HelloWorld</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo"><span class="nav-number">1.1.</span> <span class="nav-text">Demo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%AF%BC%E5%85%A5"><span class="nav-number">1.2.</span> <span class="nav-text">静态资源导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A6%96%E9%A1%B5"><span class="nav-number">1.3.</span> <span class="nav-text">首页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E-Thymeleaf"><span class="nav-number">1.4.</span> <span class="nav-text">模板引擎-Thymeleaf</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Demo01-%E5%B1%95%E7%A4%BA"><span class="nav-number">1.4.1.</span> <span class="nav-text">Demo01-展示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Demo02-%E5%8F%96%E5%80%BC"><span class="nav-number">1.4.2.</span> <span class="nav-text">Demo02-取值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Demo03-each"><span class="nav-number">1.4.3.</span> <span class="nav-text">Demo03-each</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A3%85%E9%85%8DMVC"><span class="nav-number">1.5.</span> <span class="nav-text">装配MVC</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%91%98%E5%B7%A5%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.</span> <span class="nav-text">员工管理系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E6%A8%A1%E6%9D%BF"><span class="nav-number">2.1.</span> <span class="nav-text">导入模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%BD%93%E7%B1%BB"><span class="nav-number">2.2.</span> <span class="nav-text">实体类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dao"><span class="nav-number">2.3.</span> <span class="nav-text">Dao</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Controller"><span class="nav-number">2.4.</span> <span class="nav-text">Controller</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML%E7%BB%93%E5%90%88Thymeleaf"><span class="nav-number">2.5.</span> <span class="nav-text">HTML结合Thymeleaf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BD%E9%99%85%E5%8C%96-internationalization-i18n"><span class="nav-number">2.6.</span> <span class="nav-text">国际化&#x2F;internationalization&#x2F;i18n</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%99%BB%E5%BD%95%E4%B8%8E%E6%8B%A6%E6%88%AA%E5%99%A8"><span class="nav-number">2.7.</span> <span class="nav-text">登录与拦截器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CRUD-amp-%E7%BD%91%E9%A1%B5%E5%A4%8D%E7%94%A8"><span class="nav-number">2.8.</span> <span class="nav-text">CRUD&amp;网页复用</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ljz</p>
+  <div class="site-description" itemprop="description">写博客,或在写博客的路上</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+          </div>
+        </div>
+    </div>
+    <div style="display:none">
+      <!--clustrmaps-->
+      <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=V7pseSmYqG3eRqg-m6VS1UxwXHXL8gIybqq7QtBtLug&cl=ffffff&w=a"></script>
+    </div>
+    <!--music-->
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=36607898&auto=0&height=66"></iframe>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jazzylee.github.io/2021/08/20/springboot/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ljz">
+      <meta itemprop="description" content="写博客,或在写博客的路上">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="movice">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SpringBoot入门
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-20 14:02:11" itemprop="dateCreated datePublished" datetime="2021-08-20T14:02:11+08:00">2021-08-20</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-25 22:18:45" itemprop="dateModified" datetime="2021-08-25T22:18:45+08:00">2021-08-25</time>
+      </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>都在接近尾声</p>
+<span id="more"></span>
+
+<h1 id="HelloWorld"><a href="#HelloWorld" class="headerlink" title="HelloWorld"></a>HelloWorld</h1><h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>方式一：<a target="_blank" rel="noopener" href="https://start.spring.io/">在这里</a>创建项目，导出并解压，IDEA打开</p>
+<p><strong>方式二：在IDEA中创建</strong></p>
+<ul>
+<li>Step1</li>
+</ul>
+<img src="springboot/image-20210820185908484.png" alt="image-20210820185908484" style="zoom:67%;" />
+
+<ul>
+<li><p>Step2</p>
+<img src="springboot/image-20210820190223814.png" alt="image-20210820190223814" style="zoom:67%;" />
+
+<p>上图不勾选其实也可以，只要后期在pom.xml中添加一个依赖就行：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>Step3</p>
+<p>创建之后可以在src路径下找到一个java程序：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Springboot01HelloworldApplication</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      SpringApplication.run(Springboot01HelloworldApplication.class, args);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个程序的同级路径创建controller包，并在其下创建controller，即可实现数据的相应</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/hello&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@GetMapping(&quot;/hello&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<p><img src="springboot/image-20210820191027439.png" alt="image-20210820191027439"></p>
+</li>
+</ul>
+<hr>
+
+<p>奇奇怪怪的操作</p>
+<ol>
+<li><p>创建的项目在打包(package)之后，会变成jar包，可以在控制台中启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar xxx.jar</span><br></pre></td></tr></table></figure></li>
+<li><p>在resources路径下，新建<code>banner.txt</code>，<a target="_blank" rel="noopener" href="https://www.bootschool.net/ascii-art">在此</a>可以找到一些ascii艺术字，复制进去，即可替换原始的Spring艺术字。如果<code>banner.txt</code>为空，则启动springboot项目时就不会有艺术字。</p>
+</li>
+</ol>
+<p><img src="springboot/image-20210820185357221.png" alt="image-20210820185357221"></p>
+<p>​    </p>
+<ol start="3">
+<li><p>修改端口号</p>
+<p>端口号默认是8080，可以在<code>application.properties</code>内配置</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#更改端口号</span></span><br><span class="line"><span class="meta">server.port</span>=<span class="string">8090</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="静态资源导入"><a href="#静态资源导入" class="headerlink" title="静态资源导入"></a>静态资源导入</h2><p>在<code>localhost:8080/</code>要访问静态资源时，默认会依次到<code>resources/resources</code>，<code>resources/static</code>，<code>resources/public</code>路径下寻找</p>
+<h2 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h2><p>访问<code>localhost:8080</code>时，默认到上面提到的3个路径下寻找<code>index.html</code></p>
+<h2 id="模板引擎-Thymeleaf"><a href="#模板引擎-Thymeleaf" class="headerlink" title="模板引擎-Thymeleaf"></a>模板引擎-Thymeleaf</h2><p>模板引擎用于将后台数据绑定显示到前端页面，jsp就是一中模板引擎。在SpringBoot中，官方推荐使用<a target="_blank" rel="noopener" href="https://www.thymeleaf.org/">Thymeleaf</a></p>
+<p>使用之前，导入依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.thymeleaf<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>thymeleaf-spring5<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.thymeleaf.extras<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>thymeleaf-extras-java8time<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在thymeleaf的配置类ThymeleafProperties中可以发现，前缀、后缀分别如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String DEFAULT_PREFIX = <span class="string">&quot;classpath:/templates/&quot;</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String DEFAULT_SUFFIX = <span class="string">&quot;.html&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>因此如果要通过controller跳转，可以在template下创建要被跳转的页面</p>
+<blockquote>
+<p>template目录下的文件只能通过controller跳转访问，类似以前的WEB-INF</p>
+</blockquote>
+<h3 id="Demo01-展示"><a href="#Demo01-展示" class="headerlink" title="Demo01-展示"></a>Demo01-展示</h3><p>创建<code>index.html</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IndexController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/index&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;index&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="springboot/image-20210824222323337.png" alt="image-20210824222323337"></p>
+<h3 id="Demo02-取值"><a href="#Demo02-取值" class="headerlink" title="Demo02-取值"></a>Demo02-取值</h3><p>传递数据时，首先给html<strong>增加约束</strong>，在标签中获取model设置的属性时，和Vue近似</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IndexController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/index&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">main</span><span class="params">(Model model)</span></span>&#123;</span><br><span class="line">        model.addAttribute(<span class="string">&quot;msg&quot;</span>,<span class="string">&quot;goodnight&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;index&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span> <span class="attr">xmlns:th</span>=<span class="string">http://www.thymeleaf.org</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  两种去组织方法</span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">th:text</span>=<span class="string">&quot;$&#123;msg&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>[[$&#123;msg&#125;]]<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>奇怪的是，这个index页面中th属性的节点需要输入完整的地址才能显示，即使默认情况下就是访问index.html的。</p>
+</blockquote>
+<h3 id="Demo03-each"><a href="#Demo03-each" class="headerlink" title="Demo03-each"></a>Demo03-each</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.addAttribute(<span class="string">&quot;years&quot;</span>, Arrays.asList(<span class="string">&quot;2021&quot;</span>,<span class="string">&quot;2022&quot;</span>,<span class="string">&quot;2023&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">th:each</span>=<span class="string">&quot;year:$&#123;years&#125;&quot;</span> <span class="attr">th:text</span>=<span class="string">&quot;$&#123;year&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="装配MVC"><a href="#装配MVC" class="headerlink" title="装配MVC"></a>装配MVC</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//扩展SpringMVC</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyMVCConfig</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line">    <span class="comment">//视图解析器，需要有一个实现了ViewResolver接口的类，例如可以使用静态内部类的方式</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyVR</span> <span class="keyword">implements</span> <span class="title">ViewResolver</span></span>&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> View <span class="title">resolveViewName</span><span class="params">(String s, Locale locale)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//    交给Spring接管</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ViewResolver <span class="title">diyViewResolver</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> MyVR();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>视图跳转</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//视图跳转</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addViewControllers</span><span class="params">(ViewControllerRegistry registry)</span> </span>&#123;</span><br><span class="line">    registry.addViewController(<span class="string">&quot;/hi&quot;</span>).setViewName(<span class="string">&quot;c3&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="员工管理系统"><a href="#员工管理系统" class="headerlink" title="员工管理系统"></a>员工管理系统</h1><h2 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h2><p>首先导入资源文件，更多资源可搜Bootstrap模板</p>
+<p><img src="springboot/image-20210825144746438.png" alt="image-20210825144746438"></p>
+<h2 id="实体类"><a href="#实体类" class="headerlink" title="实体类"></a>实体类</h2><p>创建部门和员工两个实体类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String eName;</span><br><span class="line">    <span class="keyword">private</span> String email;</span><br><span class="line">    <span class="keyword">private</span> Integer gender;</span><br><span class="line">    <span class="keyword">private</span> Department department;</span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Department</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String departmentName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Dao"><a href="#Dao" class="headerlink" title="Dao"></a>Dao</h2><p>Dao层实现(增)删改查，数据自己生成</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DepartmentDao</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Map&lt;Integer, Department&gt; departments = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        departments = <span class="keyword">new</span> HashMap&lt;Integer,Department&gt;();</span><br><span class="line">        departments.put(<span class="number">101</span>,<span class="keyword">new</span> Department(<span class="number">101</span>,<span class="string">&quot;明德&quot;</span>));</span><br><span class="line">        departments.put(<span class="number">102</span>,<span class="keyword">new</span> Department(<span class="number">102</span>,<span class="string">&quot;厚学&quot;</span>));</span><br><span class="line">        departments.put(<span class="number">103</span>,<span class="keyword">new</span> Department(<span class="number">103</span>,<span class="string">&quot;沉毅&quot;</span>));</span><br><span class="line">        departments.put(<span class="number">104</span>,<span class="keyword">new</span> Department(<span class="number">104</span>,<span class="string">&quot;笃行&quot;</span>));</span><br><span class="line">        departments.put(<span class="number">105</span>,<span class="keyword">new</span> Department(<span class="number">105</span>,<span class="string">&quot;水塔&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Collection&lt;Department&gt; <span class="title">getDepartmentInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> departments.values();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Department <span class="title">getDepartmentById</span><span class="params">(Integer id)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> departments.get(id);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EmployeeDao</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Map&lt;Integer, Employee&gt; employees = <span class="keyword">null</span>;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> DepartmentDao departmentDao;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        employees = <span class="keyword">new</span> HashMap&lt;Integer,Employee&gt;();</span><br><span class="line">        employees.put(<span class="number">1001</span>,<span class="keyword">new</span> Employee(<span class="number">1001</span>,<span class="string">&quot;worker1001&quot;</span>,<span class="string">&quot;1001@qq.com&quot;</span>,<span class="number">0</span>,<span class="keyword">new</span> Department(<span class="number">101</span>,<span class="string">&quot;明德&quot;</span>)));</span><br><span class="line">        employees.put(<span class="number">1002</span>,<span class="keyword">new</span> Employee(<span class="number">1002</span>,<span class="string">&quot;worker1002&quot;</span>,<span class="string">&quot;1002@qq.com&quot;</span>,<span class="number">0</span>,<span class="keyword">new</span> Department(<span class="number">102</span>,<span class="string">&quot;明德&quot;</span>)));</span><br><span class="line">        employees.put(<span class="number">1003</span>,<span class="keyword">new</span> Employee(<span class="number">1003</span>,<span class="string">&quot;worker1003&quot;</span>,<span class="string">&quot;1003@qq.com&quot;</span>,<span class="number">1</span>,<span class="keyword">new</span> Department(<span class="number">103</span>,<span class="string">&quot;明德&quot;</span>)));</span><br><span class="line">        employees.put(<span class="number">1004</span>,<span class="keyword">new</span> Employee(<span class="number">1004</span>,<span class="string">&quot;worker1004&quot;</span>,<span class="string">&quot;1004@qq.com&quot;</span>,<span class="number">1</span>,<span class="keyword">new</span> Department(<span class="number">104</span>,<span class="string">&quot;明德&quot;</span>)));</span><br><span class="line">        employees.put(<span class="number">1005</span>,<span class="keyword">new</span> Employee(<span class="number">1005</span>,<span class="string">&quot;worker1005&quot;</span>,<span class="string">&quot;1005@qq.com&quot;</span>,<span class="number">1</span>,<span class="keyword">new</span> Department(<span class="number">105</span>,<span class="string">&quot;明德&quot;</span>)));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> Integer pk = <span class="number">1006</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addEmployee</span><span class="params">(Employee employee)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(employee.getId()==<span class="keyword">null</span>)&#123;</span><br><span class="line">            employee.setId(pk++);</span><br><span class="line">        &#125;</span><br><span class="line">        employee.setDepartment(departmentDao.getDepartmentById(employee.getDepartment().getId()));</span><br><span class="line">        employees.put(employee.getId(),employee);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Collection&lt;Employee&gt; <span class="title">getAllWorkers</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> employees.values();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Employee <span class="title">getWorkerById</span><span class="params">(Integer id)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> employees.get(id);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteEmployee</span><span class="params">(Integer id)</span></span>&#123;</span><br><span class="line">        employees.remove(id);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h2><p>主页controller：参考上一节装配MVC。当然了，也可以使用传统的@Controller+@RequestMapping的方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addViewControllers</span><span class="params">(ViewControllerRegistry registry)</span> </span>&#123;</span><br><span class="line">    registry.addViewController(<span class="string">&quot;/&quot;</span>).setViewName(<span class="string">&quot;index&quot;</span>);</span><br><span class="line">    registry.addViewController(<span class="string">&quot;/index&quot;</span>).setViewName(<span class="string">&quot;index&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="HTML结合Thymeleaf"><a href="#HTML结合Thymeleaf" class="headerlink" title="HTML结合Thymeleaf"></a>HTML结合Thymeleaf</h2><p>模板html配置：需要引入thymeleaf约束，对于资源url，改为使用<code>th:href=&quot;@&#123;/path/to/source&#125;&quot;</code>的格式</p>
+<h2 id="国际化-internationalization-i18n"><a href="#国际化-internationalization-i18n" class="headerlink" title="国际化/internationalization/i18n"></a>国际化/internationalization/i18n</h2><p>开始之前确保使用UTF-8</p>
+<img src="springboot/image-20210825165833518.png" alt="image-20210825165833518" style="zoom:50%;" />
+
+<p>创建一些properties</p>
+<p><img src="springboot/image-20210825170539182.png" alt="image-20210825170539182"></p>
+<p>IDEA提供配置多语言的可视化页面，</p>
+<img src="springboot/image-20210825170711807.png" alt="image-20210825170711807" style="zoom:50%;" />
+
+<p>下图的作用是分别在三个文件中设置login_tip</p>
+<img src="springboot/image-20210825170815211.png" alt="image-20210825170815211" style="zoom: 50%;" />
+
+<p>完成之后在application.properties中配置</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">spring.messages.basename</span>=<span class="string">i18n.login</span></span><br></pre></td></tr></table></figure>
+
+<p>在thymeleaf中使用国际化消息时，使用<code>#&#123;...&#125;</code>的格式，例如</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">th:text</span>=<span class="string">&quot;#&#123;login.tip&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>要实现多语言的切换，还要实现一个<code>LocaleResolver</code>接口的解析器，这个接口根据前端点击不同的语言所产生的不同的url参数，进行语言设置。thymeleaf传递请求参数时，使用<code>(param=value)</code>的格式，例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">th:href</span>=<span class="string">&quot;@&#123;/index(lang=&#x27;zh_CN&#x27;)&#125;&quot;</span>&gt;</span>中文<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">th:href</span>=<span class="string">&quot;@&#123;/index(lang=&#x27;en_US&#x27;)&#125;&quot;</span>&gt;</span>English<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyLocalResolver</span> <span class="keyword">implements</span> <span class="title">LocaleResolver</span> </span>&#123;</span><br><span class="line">    <span class="comment">//解析请求</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Locale <span class="title">resolveLocale</span><span class="params">(HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">        String lang = request.getParameter(<span class="string">&quot;lang&quot;</span>);</span><br><span class="line">        <span class="comment">//下面这部分参考官方程序</span></span><br><span class="line">        Locale locale = Locale.getDefault();</span><br><span class="line">        <span class="keyword">if</span>(!StringUtils.isEmpty(lang))&#123;</span><br><span class="line">            String[] nationAndArea = lang.split(<span class="string">&quot;_&quot;</span>);</span><br><span class="line">            locale = <span class="keyword">new</span> Locale(nationAndArea[<span class="number">0</span>], nationAndArea[<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> locale;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLocale</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Locale locale)</span> </span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>解析器最终要交给Spring托管。在MyMVCConfig中配置如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> LocaleResolver <span class="title">localeResolver</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> MyLocalResolver();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="登录与拦截器"><a href="#登录与拦截器" class="headerlink" title="登录与拦截器"></a>登录与拦截器</h2><p>登录还是挺简单的。登录成功后在session中添加属性，拦截器根据该属性是否存在进行拦截</p>
+<h2 id="CRUD-amp-网页复用"><a href="#CRUD-amp-网页复用" class="headerlink" title="CRUD&amp;网页复用"></a>CRUD&amp;网页复用</h2><p>为了使目录结构更加清晰，创建commons.html，专门存放模板。</p>
+<p>在这个web应用中，头部、侧边栏是可以复用的，thymeleaf复用时，首先在标签后添加<code>th:fragment=”frag_id“</code>的属性，在复用这部分时，引入格式为：<code>th:insert=&quot;~&#123;模板文件路径::frag_id&#125;&quot;</code>或<code>th:replace=&quot;~&#123;模板文件路径::frag_id&#125;&quot;</code>。</p>
+<p>此外，还可以在使用模板时向模板传递参数，传递方式类似get请求时候的参数传递，下面的例子表示使用common文件夹下的commmons.html中的sidebar模块，并且在使用时候传入一个名字为page，值为list的参数</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:insert</span>=<span class="string">&quot;~&#123;common/commons.html::sidebar(page=&#x27;list&#x27;)&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>模板文件要对传递的参数进行判断，并据此设置标签的属性(如高亮)，使用方式参考下面这个：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">th:class</span>=<span class="string">&quot;$&#123;page==&#x27;list&#x27;?&#x27;nav-link active&#x27;:&#x27;nav-link&#x27;&#125;&quot;</span> <span class="attr">th:href</span>=<span class="string">&quot;@&#123;/emps&#125;&quot;</span>&gt;</span>员工管理<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>thymeleaf中有一些函数，例如dates.format，可以讲日期字符串格式化，更多函数参考文档</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/Spring/" rel="tag"># Spring</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/08/18/vue/" rel="prev" title="Vue极简入门">
+                  <i class="fa fa-chevron-left"></i> Vue极简入门
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/08/23/howNetConnect/" rel="next" title="《网络是怎样连接的》">
+                  《网络是怎样连接的》 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ljz</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
