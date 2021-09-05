@@ -20,36 +20,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jazzylee.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.6.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="经过这阵子的学习，对web的请求与响应有了比以往更深入的认识，但至于web服务器是怎样工作的、什么是负载均衡、听得耳朵起茧的防火墙又是什么等一系列问题还摸不着头脑。希望能借此书了解到web通信的全貌。">
+<meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《网络是怎样连接的》">
-<meta property="og:url" content="https://jazzylee.github.io/2021/08/23/howNetConnect/index.html">
+<meta property="og:title" content="初来北邮这五天">
+<meta property="og:url" content="https://jazzylee.github.io/2021/09/05/diary0905/index.html">
 <meta property="og:site_name" content="北游记">
-<meta property="og:description" content="经过这阵子的学习，对web的请求与响应有了比以往更深入的认识，但至于web服务器是怎样工作的、什么是负载均衡、听得耳朵起茧的防火墙又是什么等一系列问题还摸不着头脑。希望能借此书了解到web通信的全貌。">
+<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/howNetConnect/image-20210823220911341.png">
-<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/howNetConnect/epub_907755_33">
-<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/howNetConnect/epub_907755_38">
-<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/howNetConnect/epub_907755_41">
-<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/howNetConnect/epub_907755_42">
-<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/howNetConnect/epub_907755_56">
-<meta property="og:image" content="https://res.weread.qq.com/wrepub/epub_907755_66">
-<meta property="article:published_time" content="2021-08-23T13:55:06.000Z">
-<meta property="article:modified_time" content="2021-08-23T14:52:28.859Z">
+<meta property="article:published_time" content="2021-09-05T15:11:06.000Z">
+<meta property="article:modified_time" content="2021-09-05T16:22:53.806Z">
 <meta property="article:author" content="movice">
-<meta property="article:tag" content="读书笔记">
+<meta property="article:tag" content="随笔">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/howNetConnect/image-20210823220911341.png">
 
 
-<link rel="canonical" href="https://jazzylee.github.io/2021/08/23/howNetConnect/">
+<link rel="canonical" href="https://jazzylee.github.io/2021/09/05/diary0905/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jazzylee.github.io/2021/08/23/howNetConnect/","path":"2021/08/23/howNetConnect/","title":"《网络是怎样连接的》"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jazzylee.github.io/2021/09/05/diary0905/","path":"2021/09/05/diary0905/","title":"初来北邮这五天"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>《网络是怎样连接的》 | 北游记</title>
+<title>初来北邮这五天 | 北游记</title>
   
 
 
@@ -115,7 +107,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -128,7 +120,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8E%E6%8C%89%E4%B8%8B%E5%9B%9E%E8%BD%A6%E5%88%B0%E5%8F%91%E9%80%81Http%E8%AF%B7%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text">从按下回车到发送Http请求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A6%81%E8%AE%BF%E9%97%AE%E4%BB%80%E4%B9%88%E8%B5%84%E6%BA%90%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">要访问什么资源？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A6%81%E5%AF%B9%E8%B5%84%E6%BA%90%E8%BF%9B%E8%A1%8C%E4%BB%80%E4%B9%88%E6%93%8D%E4%BD%9C%EF%BC%9F"><span class="nav-number">1.2.</span> <span class="nav-text">要对资源进行什么操作？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Http%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%A7%E7%94%9F"><span class="nav-number">1.3.</span> <span class="nav-text">Http请求的产生</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS-%E4%BB%8E%E5%9F%9F%E5%90%8D%E5%88%B0IP"><span class="nav-number">1.4.</span> <span class="nav-text">DNS-从域名到IP</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -201,7 +192,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jazzylee.github.io/2021/08/23/howNetConnect/">
+    <link itemprop="mainEntityOfPage" href="https://jazzylee.github.io/2021/09/05/diary0905/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -214,7 +205,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          《网络是怎样连接的》
+          初来北邮这五天
         </h1>
 
         <div class="post-meta-container">
@@ -224,10 +215,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-08-23 21:55:06 / Modified: 22:52:28" itemprop="dateCreated datePublished" datetime="2021-08-23T21:55:06+08:00">2021-08-23</time>
+      <time title="Created: 2021-09-05 23:11:06" itemprop="dateCreated datePublished" datetime="2021-09-05T23:11:06+08:00">2021-09-05</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-09-06 00:22:53" itemprop="dateModified" datetime="2021-09-06T00:22:53+08:00">2021-09-06</time>
+      </span>
 
   
     <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
@@ -246,45 +243,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>经过这阵子的学习，对web的请求与响应有了比以往更深入的认识，但至于web服务器是怎样工作的、什么是负载均衡、听得耳朵起茧的防火墙又是什么等一系列问题还摸不着头脑。希望能借此书了解到web通信的全貌。</p>
-<span id="more"></span>
-
-<p><strong style="font-size:30px">NOTE:红字表示胡言乱语，有待考究</strong></p>
-<hr>
-
-<h1 id="从按下回车到发送Http请求"><a href="#从按下回车到发送Http请求" class="headerlink" title="从按下回车到发送Http请求"></a>从按下回车到发送Http请求</h1><p>访问<code>web</code>网页时，使用的是<code>http</code>协议，但<code>URL</code>既然标榜着<code>uniform</code>，显然不限于<code>http</code>通信，其他的还有<code>ftp</code>、<code>mailto</code>、<code>news</code>甚至<code>file</code>，例如在Windows资源管理器中输入<code>file://c:</code>，会惊奇地发现其实就是访问了C盘，想来也没问题，只是<code>file://</code>第一次见。</p>
-<blockquote>
-<p>HTTP协议定义了客户端和服务器之间交互的消息内容和步骤，请求消息中包含的内容是“对什么”和“进行怎样的操作”两个部分</p>
-</blockquote>
-<h2 id="要访问什么资源？"><a href="#要访问什么资源？" class="headerlink" title="要访问什么资源？"></a>要访问什么资源？</h2><p>书中给了这样一个URL的例子，明目张胆地写上user，password，之前还真没接触过，<span style="color:red">或许是早期版本的http只能在这里验证用户身份？</span></p>
-<p><img src="howNetConnect/image-20210823220911341.png" alt="image-20210823220911341"></p>
-<p>服务器名常见的表现形式就是域名了，http请求默认的端口号是80，https:443，端口号之后就是资源路径了。书里的意思是请求最终都落地在一个文件上：</p>
-<ol>
-<li>如果省略了路径名后的文件名：<code>http://www.glasscom.com/air/</code> ，表示要去访问一个默认的文件名</li>
-<li>省略了后面的<code>/</code>：<code>http://www.glasscom.com/air</code>，则根据<code>air</code>是文件还是路径具体分析(因为同意路径下不会存在同名的文件夹和文件)，是文件则表示访问这个名为<code>air</code>的文件，是路径则参考上一条注解</li>
-<li>如果URL变成了这个样子：<code>http://www.glasscom.com/</code>,依然是访问一个(根路径下)默认的文件</li>
-<li>再进一步，<code>http://www.glasscom.com</code>，也是表示访问根目录下的预设文件</li>
-</ol>
-<p><span style="color:red">在spring项目中，诸如GetMapping等能够将一个请求路径映射到模板文件的操作和上面的请求需要落地到具体文件上的理念似乎有些区别？</span></p>
-<h2 id="要对资源进行什么操作？"><a href="#要对资源进行什么操作？" class="headerlink" title="要对资源进行什么操作？"></a>要对资源进行什么操作？</h2><img src="howNetConnect/epub_907755_33" style="zoom:50%;" />
-
-<h2 id="Http请求的产生"><a href="#Http请求的产生" class="headerlink" title="Http请求的产生"></a>Http请求的产生</h2><p>上面的请求方式和请求地址只是完整http请求的(请求行的)一部分</p>
-<img src="howNetConnect/epub_907755_38" alt="img" style="zoom:50%;" />
-
-<p>消息中的字段参考下面几张图。</p>
-<img src="howNetConnect/epub_907755_41" alt="img" style="zoom: 33%;" />
-
-<img src="howNetConnect/epub_907755_42" alt="img" style="zoom: 25%;" />
-
-<p>相应中的状态码常见的有3XX重定向、4XX客户端的错误、5XX服务器的错误。书中提到的1XX“告知请求的处理进度和情况”还是第一次见。</p>
-<h2 id="DNS-从域名到IP"><a href="#DNS-从域名到IP" class="headerlink" title="DNS-从域名到IP"></a>DNS-从域名到IP</h2><p>先回顾一下IP(v4)，32bit数据，分成网络号+主机号两部分</p>
-<img src="howNetConnect/epub_907755_56" alt="img" style="zoom:33%;" />
-
-<p>要查一个域名的IP，需要到DNS服务器上解析，至于为什么能找到DNS服务器，因为在OS配置DNS的时候，填写的就是IP…</p>
-<p>解析的过程被封装在库中了，可以直接调用</p>
-<img src="https://res.weread.qq.com/wrepub/epub_907755_66" alt="img" style="zoom:50%;" />
-
-
+        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="f9627b827f9b80be2c82acfc23ed53c5aa7ed34bca8807c5512ac8cb79f60631">3221393bcab47733a73598f4d7f597794f3defb349d2a2c90b8ceeb0ce256e90f13af9303117f9ee3d98e8b8e0e66f80958c35bd0150227a46cdbeb4ebafcb00cc50ecc369e50ba6800e60d1bc2408214ab56237540debbb04effc698abec346b9e45acb438c43cd62656e706ca60dab6609153391246f6d937734cb38ce8060940ea940f3f31853e4cbc228a96c3140fb3020bcc8f3448334bc4a87a6d39d3099fd32f7f88a229a9a3195f4ab3172c65a812fc0d1275e9bcd5c3ed99dd3a02d3634557430d0df990ebfd767d1e5b3e1e21fbcbf1e5e426f8cc8b16eef8104d4ebb7ce172de6ce4868311464ec5814647b76e0e5bde22db5a82529dd3f4813514d9c191b033d82b39b78e1b23e060d6a9291986195ae7c87330904b2dd47c1c4a12e4deb3bc0b7b52c0c320e0fa68467eee55deaa5559ccabe4c99bf0702905c441a761265631aa79b57d787f026f6d332379ecb9fe1fc80426345c6cf0c66c1d31a63f8b9fe9ca3f71ceeceb10ac9cb7c468782dd6bfeae97e865547ad2b9102fddf48c789a80d99c9340d614c3f6257e94f51cc984efc88f569841d477439925b63e5ccd1f978c2efa23a49311badd31fd231a13c31d518ae2999a18981a19b2caec19cec1eab08686f99448bd551f9c7c1e3e72f2b257b3fe18f5f48cccf579e773f41042b155a413d7bcfacbbab2c3251bdebeab5f340d136d06d09a9ba94ae758e3358fb346bec640413470dbeb86e2d57ae4e5abb7ab8cf020e6c7d3184c89bf5c8138ce5afaa192909934b5e0a9298b3cb19c58fd1e2e0a5384c018704758241cf32c6db3dd94f676da6f6e0802653660051cb1ca155359dc9f1a4be3e641ff260d8af9902b2a3136e03795b72939134258b3d5ce4ef5f2b08c68452dca36092c990fbd900d9ae380525a6eca3a51dbf52bc3477d4a1a01549f80dadc47fdf91987b956cfc02767fbf0a979ab642fa0919aaacd3e22798f7be11f7860ef1a1d99f48001b19324e1d6cc094d0ba58f93627afe60a7d1977cddc853d4b42ed22d487f32a6f8d874e718ff10edee909134033f5f3ec9039d3c91ae7dc37202b17ca9e241bea0401266089e2ba229499c13733f8e7f73058c558e2d6a09dff8094f02672839d692aa7c2e9b883f78ad5c42f2e05639b008245a9b95c1f2f093fa87ec204c8c4668df791ba031326ce5f3b39f1f819c35e6e62991606617d469ead851d4fec8c346c755b804bac4897e0ec5ec364b08988a1957885e7a5246ff7a6d7a911d2c21bbcb355940a5993932582bfa22023807a4c7cc7f50c4dd8a20ce0b869642bcfc472f839376b47ba6357bc180f16a1fdeab33822a82bc9737ebdd2b69208907c29d2f6dd21cc69c70259f29459ab927e804d6ad55041a20a44af02984fe3151af0c904ecf4c33ea5fa9ebffb762897ee4ef84b601c00cc87325b639d3754b0566b268d15f50a566f18734466281fe81f5fa453d57dfa7cf2795807d650e2aabf00b7ec27e071e32a2904773a875302d51e5c3d43de0b9fc4d6a014c91332b6e43535eaf6709c1f76caf69b2f7c1bc8d26297a89e4f7415f67ff2e8c6ec234eb0d520769430e2b8ab64bd4afa1334789a734d69f1907e1e8b13dec03a6761dde6212ff7561256b2dfde83351c97bc0a5b8d242eb724853d2ff39077ac505ac9034157951c18b0dbc0d012bfc758f124b8c32714eae39d4f919e6e60f3bb42216282ba97b7e6519959fec917a380bf5d422018680339a91e4f17fe1c1d114b2a1b8cd092654935c51d499e4f378397b605568c722401997a7c7cc58e81ad2311b66e526e26e10bb8c86fee6cbb89d351502ce8c27d2e47a2d2b32e0669f83b813112fd357147975526121d10be20d6ffd634f5b9d215c4a0bcffdcd500f0a7d947fec5eca8ddf834238925de4f2a661582553109b5c1eee1d0a1048dec63afde206312d7a902617f8e4097696657a52438e0ebc5400d5bb8547fcb58cc01349aa8ad73e150fc4f9f8d00b3e875b5e62e18082ed0eaa40ba5d9d5b46ba87826710d757d0647aa3cca566817e04e90a920778d979adce1e36d1f72ad2784d8b789140c533aebd033ca691feced1d9b638dd4224058945315b0b103f26acc7f9e76d2f1e54c5c14775ff744385b11e58d5e81e6b3a9a40321a78c50bc8b5b3304aee10c504251b591f79e5c8cada7914bcc257f8708995635aa27750636762419316b9f4ee1c1e81d71eacac0978cce418808d2513c8c8ac056f1842fcf7d1262a26ff514b9bb7ab2f6f7543f7019aa54444d4c0b3bb1884775fd7e505094634893c7cebf67c1b96af8f517c8fa89f9bd4f0e1afd9fa5c909b62f5d55de2bf5963263ff4f164a4349edc6f552d4bbaa0fa2593e01ad77433817a631cd627631e83b978100cb571c1f825014fc6ffdb6137dccd542e9c75fdf8e5e82648e8ac96bc044ca42ef783f9a60bfdd41a5eaf635f60768df857ecd1c219024a9cb4c1a681573c80015eda027ced90550dbe37e14b5fb70fc515a76a3fd8b854d70895741916d58e01997c9455e5ab58e71c2f867a899a29ad64dbb6d95f32c6d72699a6486132c18904f5bbe6628b348f2d3758ac88a58203ef27e3f363d9cd314287cdd82156940444e965eea0ce3e7d1f176dbb12a84ecda58776803ce95abc1b962b15dbdd7d908ef8e7bd0d1a000c14b68ce39c99e6708fc2e645a6f5698308ba580137b0249cc81a9ea8bf4201f0a8a8f484c33b05f8b0314872e5dcd8528bd568d5853e07a4bdb40c1f5e036dbf53eccfbff350a438d9fccb01cbb55e6deb1f7ab95a262246b127b70db9aa41e5a4ad9e9cd252f3c9569f6db0960ec8e1c88d993c5541d02215ba103f44535f1a5f66c9eb9d5e1db2ddfacd8bdbb05f1c31c924d4bf0857313c9a490a9cd4355e87016f881b6228cd0407bcd82e9ea78bdd35a666011c135e280475f10db15c74a46591c89a7d36c2f99c306518c1084be266571e8c964b05ff9591ca6eb3f744d8411ed2494064de1e7fcd474b316437d4b70deceda794b2730debe17527fecb7f48487764f3a9bca326078c998f1b948b43997024fd0e735e9b29666e751520fbd079bb6a2758cfc48995937580b1030796e35d3dda673c2d327cb9732d8b21b56d1f3bd84ba0daaedb0ccaaca2f5afe121480a963ae6f6dbff91e261d9b0852dad219e896a0375f0cf6b54082a4780b77388f8fdd81ff9abb3761b2c504bd89b6d1b71ae6a836b690e72d5389fbc3b0030e31b16a4b13f0ba5350db2b96b3ad455463b84b383e2d5f7f396d8f1570dbd8047be9495d519ce207124bdfe65b2e7717b54585ee75b3829323692c012a2b8d4e1caab4047ef60fee2791406</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
     </div>
 
     
@@ -293,21 +263,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag"># 读书笔记</a>
+              <a href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag"># 随笔</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/08/20/springboot/" rel="prev" title="SpringBoot入门">
-                  <i class="fa fa-chevron-left"></i> SpringBoot入门
+                <a href="/2021/09/04/docker/" rel="prev" title="Docker入门">
+                  <i class="fa fa-chevron-left"></i> Docker入门
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/08/28/linuxstudy/" rel="next" title="linux温故知新">
-                  linux温故知新 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
