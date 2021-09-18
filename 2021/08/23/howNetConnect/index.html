@@ -27,19 +27,34 @@
 <meta property="og:site_name" content="北游记">
 <meta property="og:description" content="经过这阵子的学习，对web的请求与响应有了比以往更深入的认识，但至于web服务器是怎样工作的、什么是负载均衡、听得耳朵起茧的防火墙又是什么等一系列问题还摸不着头脑。希望能借此书了解到web通信的全貌。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/howNetConnect/image-20210823220911341.png">
-<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/howNetConnect/epub_907755_33">
-<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/howNetConnect/epub_907755_38">
-<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/howNetConnect/epub_907755_41">
-<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/howNetConnect/epub_907755_42">
-<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/howNetConnect/epub_907755_56">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/image-20210823220911341.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/epub_907755_33">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/epub_907755_38">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/epub_907755_41">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/epub_907755_42">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/epub_907755_56">
 <meta property="og:image" content="https://res.weread.qq.com/wrepub/epub_907755_66">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/image-20210911162939802.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/image-20210912163755344.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/image-20210912171404522.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/image-20210912171728348.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/image-20210912184953291.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/image-20210914205111016.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/image-20210914214021559.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/image-20210914214746024.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/image-20210914221037975.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/image-20210917155426559.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/image-20210917162610412.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/image-20210918170142771.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/image-20210918173902489.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/image-20210918175559253.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/image-20210918180730721.png">
 <meta property="article:published_time" content="2021-08-23T13:55:06.000Z">
-<meta property="article:modified_time" content="2021-08-23T14:52:28.859Z">
+<meta property="article:modified_time" content="2021-09-18T10:13:40.581Z">
 <meta property="article:author" content="movice">
 <meta property="article:tag" content="读书笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/howNetConnect/image-20210823220911341.png">
+<meta name="twitter:image" content="https://jazzylee.github.io/2021/08/23/howNetConnect/image-20210823220911341.png">
 
 
 <link rel="canonical" href="https://jazzylee.github.io/2021/08/23/howNetConnect/">
@@ -128,7 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8E%E6%8C%89%E4%B8%8B%E5%9B%9E%E8%BD%A6%E5%88%B0%E5%8F%91%E9%80%81Http%E8%AF%B7%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text">从按下回车到发送Http请求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A6%81%E8%AE%BF%E9%97%AE%E4%BB%80%E4%B9%88%E8%B5%84%E6%BA%90%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">要访问什么资源？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A6%81%E5%AF%B9%E8%B5%84%E6%BA%90%E8%BF%9B%E8%A1%8C%E4%BB%80%E4%B9%88%E6%93%8D%E4%BD%9C%EF%BC%9F"><span class="nav-number">1.2.</span> <span class="nav-text">要对资源进行什么操作？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Http%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%A7%E7%94%9F"><span class="nav-number">1.3.</span> <span class="nav-text">Http请求的产生</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS-%E4%BB%8E%E5%9F%9F%E5%90%8D%E5%88%B0IP"><span class="nav-number">1.4.</span> <span class="nav-text">DNS-从域名到IP</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8E%E6%8C%89%E4%B8%8B%E5%9B%9E%E8%BD%A6%E5%88%B0%E5%8F%91%E9%80%81HTTP%E8%AF%B7%E6%B1%82-%E5%8F%8A%E6%8E%A5%E6%94%B6HTTP%E5%93%8D%E5%BA%94"><span class="nav-number">1.</span> <span class="nav-text">从按下回车到发送HTTP请求(及接收HTTP响应)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A6%81%E8%AE%BF%E9%97%AE%E4%BB%80%E4%B9%88%E8%B5%84%E6%BA%90%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">要访问什么资源？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A6%81%E5%AF%B9%E8%B5%84%E6%BA%90%E8%BF%9B%E8%A1%8C%E4%BB%80%E4%B9%88%E6%93%8D%E4%BD%9C%EF%BC%9F"><span class="nav-number">1.2.</span> <span class="nav-text">要对资源进行什么操作？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Http%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%A7%E7%94%9F"><span class="nav-number">1.3.</span> <span class="nav-text">Http请求的产生</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS-%E4%BB%8E%E5%9F%9F%E5%90%8D%E5%88%B0IP"><span class="nav-number">1.4.</span> <span class="nav-text">DNS-从域名到IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A7%94%E6%89%98%E5%8D%8F%E8%AE%AE%E6%A0%88%E5%8F%91%E9%80%81Http%E8%AF%B7%E6%B1%82-TCP"><span class="nav-number">1.5.</span> <span class="nav-text">委托协议栈发送Http请求(TCP)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Step1-%E9%80%9A%E4%BF%A1%E5%87%86%E5%A4%87-%E5%88%9B%E5%BB%BA%E5%A5%97%E6%8E%A5%E5%AD%97"><span class="nav-number">1.5.1.</span> <span class="nav-text">Step1:通信准备-创建套接字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E6%8E%A2"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">初探</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">详解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step2-%E5%B0%86%E7%AE%A1%E9%81%93%E8%BF%9E%E6%8E%A5%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%A5%97%E6%8E%A5%E5%AD%97%E4%B8%8A"><span class="nav-number">1.5.2.</span> <span class="nav-text">Step2:将管道连接到服务器的套接字上</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E6%8E%A2-1"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">初探</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%A6%E8%A7%A3-1"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">详解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step3-1-%E6%94%B6%E5%8F%91%E6%95%B0%E6%8D%AE%E4%B9%8Bhttp%E8%AF%B7%E6%B1%82"><span class="nav-number">1.5.3.</span> <span class="nav-text">Step3.1:收发数据之http请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E6%8E%A2-2"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">初探</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%A6%E8%A7%A3-2"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">详解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step3-2-%E6%94%B6%E5%8F%91%E6%95%B0%E6%8D%AE%E4%B9%8Bhttp%E5%93%8D%E5%BA%94"><span class="nav-number">1.5.4.</span> <span class="nav-text">Step3.2:收发数据之http响应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step4-%E6%96%AD%E5%BC%80-%E6%96%AD%E5%BC%80%E7%AE%A1%E9%81%93%E5%B9%B6%E5%88%A0%E9%99%A4%E5%A5%97%E6%8E%A5%E5%AD%97"><span class="nav-number">1.5.5.</span> <span class="nav-text">Step4:断开-断开管道并删除套接字</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BD%91%E5%8D%A1%E6%95%B0%E6%8D%AE%E5%A6%82%E4%BD%95%E7%BB%8F%E7%BD%91%E7%BA%BF%E4%BC%A0%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91"><span class="nav-number">2.</span> <span class="nav-text">网卡数据如何经网线传入互联网</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8C%E7%BB%9E%E7%BA%BF"><span class="nav-number">2.1.</span> <span class="nav-text">双绞线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E7%BB%9E%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">2.1.1.</span> <span class="nav-text">双绞的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E7%BB%9E%E7%BA%BF%E7%9A%84%E7%A7%8D%E7%B1%BB"><span class="nav-number">2.1.2.</span> <span class="nav-text">双绞线的种类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E7%BA%BF%E5%99%A8%EF%BC%9A%E5%B9%BF%E6%92%AD%E4%BF%A1%E5%8F%B7"><span class="nav-number">2.2.</span> <span class="nav-text">集线器：广播信号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E5%8C%85%E8%BD%AC%E5%8F%91"><span class="nav-number">2.3.</span> <span class="nav-text">交换机的包转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E5%8C%85%E8%BD%AC%E5%8F%91"><span class="nav-number">2.4.</span> <span class="nav-text">路由器的包转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NAT"><span class="nav-number">2.5.</span> <span class="nav-text">NAT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%81%E6%9C%89%E5%9C%B0%E5%9D%80"><span class="nav-number">2.5.1.</span> <span class="nav-text">私有地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">2.5.2.</span> <span class="nav-text">地址转换的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91"><span class="nav-number">2.5.3.</span> <span class="nav-text">从互联网访问内网</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E5%8C%85%E8%BF%87%E6%BB%A4"><span class="nav-number">2.6.</span> <span class="nav-text">路由器的包过滤</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%A5%E5%85%A5%E7%BD%91-amp-%E8%BF%90%E8%90%A5%E5%95%86"><span class="nav-number">3.</span> <span class="nav-text">接入网&amp;运营商</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ADSL"><span class="nav-number">3.1.</span> <span class="nav-text">ADSL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MODEM"><span class="nav-number">3.1.1.</span> <span class="nav-text">MODEM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%A6%BB%E5%99%A8"><span class="nav-number">3.1.2.</span> <span class="nav-text">分离器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PPP%E4%B8%8E%E9%9A%A7%E9%81%93"><span class="nav-number">3.2.</span> <span class="nav-text">PPP与隧道</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E7%9A%84%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="nav-number">4.</span> <span class="nav-text">服务器端的局域网</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">4.1.</span> <span class="nav-text">防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="nav-number">4.2.</span> <span class="nav-text">分布式架构-负载均衡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%93%E5%AD%98%E6%9C%8D%E5%8A%A1%E5%99%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86-%E8%BD%AC%E5%8F%91-%E7%BC%93%E5%AD%98"><span class="nav-number">4.3.</span> <span class="nav-text">缓存服务器-反向代理&#x2F;转发&#x2F;缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86"><span class="nav-number">4.4.</span> <span class="nav-text">正向代理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%93%8D%E5%BA%94%E8%AF%B7%E6%B1%82"><span class="nav-number">5.</span> <span class="nav-text">Web服务器响应请求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E7%9A%84Socket"><span class="nav-number">5.1.</span> <span class="nav-text">服务器端的Socket</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E6%94%B6%E7%BD%91%E7%BB%9C%E5%8C%85"><span class="nav-number">5.2.</span> <span class="nav-text">接收网络包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A7%A3%E6%9E%90%E8%AF%B7%E6%B1%82%E6%B6%88%E6%81%AF%E3%80%81%E4%BD%9C%E5%87%BA%E5%93%8D%E5%BA%94"><span class="nav-number">5.3.</span> <span class="nav-text">服务器解析请求消息、作出响应</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6"><span class="nav-number">5.4.</span> <span class="nav-text">Web服务器的访问控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E5%93%8D%E5%BA%94%E6%B6%88%E6%81%AF"><span class="nav-number">5.5.</span> <span class="nav-text">返回响应消息</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B1%95%E7%A4%BA%E5%93%8D%E5%BA%94%E7%BB%93%E6%9E%9C"><span class="nav-number">6.</span> <span class="nav-text">浏览器展示响应结果</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Content-Type-%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">6.1.</span> <span class="nav-text">使用Content-Type 判断数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%95%E7%A4%BA%E6%95%B0%E6%8D%AE"><span class="nav-number">6.2.</span> <span class="nav-text">展示数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%99%84"><span class="nav-number">7.</span> <span class="nav-text">附</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -224,10 +239,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-08-23 21:55:06 / Modified: 22:52:28" itemprop="dateCreated datePublished" datetime="2021-08-23T21:55:06+08:00">2021-08-23</time>
+      <time title="Created: 2021-08-23 21:55:06" itemprop="dateCreated datePublished" datetime="2021-08-23T21:55:06+08:00">2021-08-23</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-09-18 18:13:40" itemprop="dateModified" datetime="2021-09-18T18:13:40+08:00">2021-09-18</time>
+      </span>
 
   
     <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
@@ -250,14 +271,21 @@
 <span id="more"></span>
 
 <p><strong style="font-size:30px">NOTE:红字表示胡言乱语，有待考究</strong></p>
+<blockquote>
+<p>科普</p>
+<ol>
+<li>最早的TCP/IP相当于现在两者合在一起的样子，后来拆分成两个协议。</li>
+<li>todo</li>
+</ol>
+</blockquote>
 <hr>
 
-<h1 id="从按下回车到发送Http请求"><a href="#从按下回车到发送Http请求" class="headerlink" title="从按下回车到发送Http请求"></a>从按下回车到发送Http请求</h1><p>访问<code>web</code>网页时，使用的是<code>http</code>协议，但<code>URL</code>既然标榜着<code>uniform</code>，显然不限于<code>http</code>通信，其他的还有<code>ftp</code>、<code>mailto</code>、<code>news</code>甚至<code>file</code>，例如在Windows资源管理器中输入<code>file://c:</code>，会惊奇地发现其实就是访问了C盘，想来也没问题，只是<code>file://</code>第一次见。</p>
+<h1 id="从按下回车到发送HTTP请求-及接收HTTP响应"><a href="#从按下回车到发送HTTP请求-及接收HTTP响应" class="headerlink" title="从按下回车到发送HTTP请求(及接收HTTP响应)"></a>从按下回车到发送HTTP请求(及接收HTTP响应)</h1><p>访问<code>web</code>网页时，使用的是<code>http</code>协议，但<code>URL</code>既然标榜着<code>uniform</code>，显然不限于<code>http</code>通信，其他的还有<code>ftp</code>、<code>mailto</code>、<code>news</code>甚至<code>file</code>，例如在Windows资源管理器中输入<code>file://c:</code>，会惊奇地发现其实就是访问了C盘，想来也没问题，只是<code>file://</code>第一次见。</p>
 <blockquote>
 <p>HTTP协议定义了客户端和服务器之间交互的消息内容和步骤，请求消息中包含的内容是“对什么”和“进行怎样的操作”两个部分</p>
 </blockquote>
 <h2 id="要访问什么资源？"><a href="#要访问什么资源？" class="headerlink" title="要访问什么资源？"></a>要访问什么资源？</h2><p>书中给了这样一个URL的例子，明目张胆地写上user，password，之前还真没接触过，<span style="color:red">或许是早期版本的http只能在这里验证用户身份？</span></p>
-<p><img src="howNetConnect/image-20210823220911341.png" alt="image-20210823220911341"></p>
+<p><img src="./image-20210823220911341.png" alt="image-20210823220911341"></p>
 <p>服务器名常见的表现形式就是域名了，http请求默认的端口号是80，https:443，端口号之后就是资源路径了。书里的意思是请求最终都落地在一个文件上：</p>
 <ol>
 <li>如果省略了路径名后的文件名：<code>http://www.glasscom.com/air/</code> ，表示要去访问一个默认的文件名</li>
@@ -266,24 +294,249 @@
 <li>再进一步，<code>http://www.glasscom.com</code>，也是表示访问根目录下的预设文件</li>
 </ol>
 <p><span style="color:red">在spring项目中，诸如GetMapping等能够将一个请求路径映射到模板文件的操作和上面的请求需要落地到具体文件上的理念似乎有些区别？</span></p>
-<h2 id="要对资源进行什么操作？"><a href="#要对资源进行什么操作？" class="headerlink" title="要对资源进行什么操作？"></a>要对资源进行什么操作？</h2><img src="howNetConnect/epub_907755_33" style="zoom:50%;" />
+<h2 id="要对资源进行什么操作？"><a href="#要对资源进行什么操作？" class="headerlink" title="要对资源进行什么操作？"></a>要对资源进行什么操作？</h2><img src="./epub_907755_33" style="zoom:50%;" />
 
 <h2 id="Http请求的产生"><a href="#Http请求的产生" class="headerlink" title="Http请求的产生"></a>Http请求的产生</h2><p>上面的请求方式和请求地址只是完整http请求的(请求行的)一部分</p>
-<img src="howNetConnect/epub_907755_38" alt="img" style="zoom:50%;" />
+<img src="./epub_907755_38" alt="img" style="zoom:50%;" />
 
 <p>消息中的字段参考下面几张图。</p>
-<img src="howNetConnect/epub_907755_41" alt="img" style="zoom: 33%;" />
+<img src="./epub_907755_41" alt="img" style="zoom: 33%;" />
 
-<img src="howNetConnect/epub_907755_42" alt="img" style="zoom: 25%;" />
+<img src="./epub_907755_42" alt="img" style="zoom: 25%;" />
 
 <p>相应中的状态码常见的有3XX重定向、4XX客户端的错误、5XX服务器的错误。书中提到的1XX“告知请求的处理进度和情况”还是第一次见。</p>
-<h2 id="DNS-从域名到IP"><a href="#DNS-从域名到IP" class="headerlink" title="DNS-从域名到IP"></a>DNS-从域名到IP</h2><p>先回顾一下IP(v4)，32bit数据，分成网络号+主机号两部分</p>
-<img src="howNetConnect/epub_907755_56" alt="img" style="zoom:33%;" />
+<h2 id="DNS-从域名到IP"><a href="#DNS-从域名到IP" class="headerlink" title="DNS-从域名到IP"></a>DNS-从域名到IP</h2><blockquote>
+<ol>
+<li>IP是给机器看的，域名是给人看的</li>
+<li>DNS解析使用UDP协议</li>
+</ol>
+</blockquote>
+<p>协议栈使用网卡发出请求时，需要知道请求的IP，因此才有这部分DNS解析的过程。</p>
+<p>先回顾一下IP(v4)，32bit数据，分成网络号+主机号两部分</p>
+<img src="./epub_907755_56" alt="img" style="zoom:33%;" />
 
 <p>要查一个域名的IP，需要到DNS服务器上解析，至于为什么能找到DNS服务器，因为在OS配置DNS的时候，填写的就是IP…</p>
-<p>解析的过程被封装在库中了，可以直接调用</p>
+<p>解析的过程被封装在Socket库中了，可以直接调用</p>
 <img src="https://res.weread.qq.com/wrepub/epub_907755_66" alt="img" style="zoom:50%;" />
 
+<p>域名根据层级保存在各级DNS服务器中，顶级域名后缀可以参考<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/35751.html">这里</a>，DNS在解析某个具体的域名时，也会逐级查询：</p>
+<p><img src="./image-20210911162939802.png" alt="image-20210911162939802"></p>
+<h2 id="委托协议栈发送Http请求-TCP"><a href="#委托协议栈发送Http请求-TCP" class="headerlink" title="委托协议栈发送Http请求(TCP)"></a>委托协议栈发送Http请求(TCP)</h2><p>其实在上面访问DNS查询IP时，也需要委托协议栈发送请求，只是相比于本部分的流程而言比较简单，没有具体展开讲。</p>
+<p>协议栈要做的事情归纳为下面四个步骤</p>
+<h3 id="Step1-通信准备-创建套接字"><a href="#Step1-通信准备-创建套接字" class="headerlink" title="Step1:通信准备-创建套接字"></a>Step1:通信准备-创建套接字</h3><h4 id="初探"><a href="#初探" class="headerlink" title="初探"></a>初探</h4><p><font color='red'>这个部分书上写得有点模糊，到底什么是管道，暂时还没有讲清楚</font></p>
+<p>服务器启动后便创建套接字</p>
+<p>客户端创建套接字，<font color='red'>延伸出管道</font>连接到服务器的套接字</p>
+<p>套接字创建完成后，协议栈会返回应用程序一个<strong>描述符</strong>用于区分不同的套接字</p>
+<h4 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h4><p>套接字的实体是通信控制信息(通信对象IP/port，通信操作的状态，…)协议栈需要根据这些信息判断下一步的行动(例如长时间无响应是否重发等等)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; -a:除正在通信的套接字外，显示所有的套接字</span><br><span class="line">&gt;</span><br><span class="line">&gt; -n:显示IP/port</span><br><span class="line">&gt;</span><br><span class="line">&gt; -o:显示套接字的PID</span><br><span class="line"></span><br><span class="line">![image-20210912160406633](./image-20210912160406633.png)</span><br><span class="line"></span><br><span class="line">创建套接字时调用库中的socket函数:</span><br><span class="line"></span><br><span class="line">```C++</span><br><span class="line">int socket(int af,int type,int protocal);</span><br><span class="line">//af:IP地址类型，v4/v6</span><br><span class="line">//type:面向连接/无连接</span><br><span class="line">//protocal:协议</span><br></pre></td></tr></table></figure>
+
+<p>创建之后该描述符返回给应用程序，后面应用程序委托协议栈发送网络请求时提供该描述符即可对通信对象/通信状态做出区分</p>
+<p>PS：刚创建完的套接字中还没有通信对象的信息，下一步中需要让协议栈知道这些信息</p>
+<h3 id="Step2-将管道连接到服务器的套接字上"><a href="#Step2-将管道连接到服务器的套接字上" class="headerlink" title="Step2:将管道连接到服务器的套接字上"></a>Step2:将<font color='green'>管道</font>连接到服务器的套接字上</h3><h4 id="初探-1"><a href="#初探-1" class="headerlink" title="初探"></a>初探</h4><p>调用Socket库中名为<code>connect</code>的函数，传入描述符，IP，端口号(用于区分不同的套接字)</p>
+<blockquote>
+<p>也许有人会说：“能不能用前面创建套接字时提到的那个描述符来识别<br>套接字呢？”这种方法其实是行不通的，因为描述符是和委托创建套接字的<br>应用程序进行交互时使用的，并不是用来告诉网络连接的另一方的，因此<br>另一方并不知道这个描述符。同样地，客户端也无法知道服务器上的描述<br>符。因此，客户端也无法通过服务器端的描述符去确定位于服务器上的某<br>一个套接字。所以，我们需要另外一个对客户端也同样适用的机制，而这<br>个机制就是端口号。</p>
+</blockquote>
+<p><code>connect</code>完成后，协议栈会保存对方的IP/port信息在套接字中</p>
+<h4 id="详解-1"><a href="#详解-1" class="headerlink" title="详解"></a>详解</h4><blockquote>
+<p>在有线拨号中，有连接、通话、挂断三个阶段，于是这个词被沿用了下来</p>
+</blockquote>
+<p>连接就是交换含控制信息；</p>
+<ol>
+<li><p>客户端这边：将连接对象的信息告知协议栈，将会把客户端的IP/port告知服务器</p>
+</li>
+<li><p>服务器这边：初始状态是不知道通信对象的，需要客户端告知</p>
+</li>
+</ol>
+<p>控制信息分为两类：</p>
+<ol>
+<li><p>位于网络包的开头，又叫做<strong>头部</strong>信息，整个通信过程中都需要</p>
+<p><img src="./image-20210912163755344.png" alt="image-20210912163755344"></p>
+</li>
+<li><p>保存在套接字中，位于协议栈中的内存空间里，控制协议栈的操作</p>
+</li>
+</ol>
+<p>连接操作的实际过程</p>
+<ol>
+<li>调用connect，传递给协议栈中的TCP模块</li>
+<li>客户端的TCP模块与服务器的TCP模块交换控制信息<ul>
+<li>客户端创建(要开始收发数据的)TCP头部信息，SYN置1</li>
+<li>TCP委托IP模块发送</li>
+<li>数据到达服务器IP模块</li>
+<li>IP-&gt;TCP</li>
+<li>服务器TCP模块根据头部信息找到端口号对应的套接字，将状态改为正在连接</li>
+<li>服务器TCP返回相应(在TCP头部设置发送方/接收方/SYN/ACK=1)</li>
+<li>服务器TCP模块委托IP木块相应数据</li>
+<li>客户端收响应应，更新套接字的状态</li>
+<li>客户端将ACK置1发回服务器</li>
+</ul>
+</li>
+<li>套接字进入随时可以收发数据的状态，业界习惯描述为有一根管道把两个套接字连接了起来</li>
+</ol>
+<h3 id="Step3-1-收发数据之http请求"><a href="#Step3-1-收发数据之http请求" class="headerlink" title="Step3.1:收发数据之http请求"></a>Step3.1:收发数据之http请求</h3><h4 id="初探-2"><a href="#初探-2" class="headerlink" title="初探"></a>初探</h4><p>发：在内存中准备要发送的数据(http请求消息)，使用<code>write</code>函数(参数为描述符)收发数据；</p>
+<p>收：使用<code>read</code>函数接收，参数为接受缓存的内存地址(即缓冲区)</p>
+<h4 id="详解-2"><a href="#详解-2" class="headerlink" title="详解"></a>详解</h4><p>协议栈会将要发送的数据存在发送缓冲区，至于何时才发送，和下面2个因素有关</p>
+<ol>
+<li><p>MTU(Maximum Transmit Unit)</p>
+<p><img src="./image-20210912171404522.png" alt="image-20210912171404522"></p>
+<p>MTU表示一个网络包的最大长度(包含头部)，以太网中一般是1500字节。减去头部的长度就是一个网络包中最大的数据长度，叫MSS(Maximum Segment Size)。</p>
+<p>因此对于大于MSS的数据需要拆分传输：</p>
+<p><img src="./image-20210912171728348.png" alt="image-20210912171728348"></p>
+</li>
+<li><p>协议栈内部的计时器</p>
+<p>避免发送频率低，迟迟凑不到MTU导致长期无法发送的问题</p>
+</li>
+</ol>
+<p>ACK:确认收到/重传</p>
+<ol>
+<li>分包发送时，会将当前这块数据位于总数据中的字节序号写在TCP头部(TCP头部信息的“序号”字段)</li>
+<li>接收方确认相应：也就是说会将到目前为止接收数据的长度累加，写在ACK字段中</li>
+<li>遇到错误时重传，几次重传无效后会强制结束通信，例如网络中断/服务器宕机等情形</li>
+</ol>
+<p>ACK等待时间与滑动窗口</p>
+<ul>
+<li><p>网络传输拥塞时，ACK号返回得变慢，这种情况需要延长等待时间，但等待时间不是越长越好，否则会造成真正要重传的数据正确完成传输的时间过长的问题。</p>
+</li>
+<li><p>TCP采取的是根据ACK号返回的时间动态调整等待时间，ACK返回慢-&gt;延长等待时间，反之缩短。</p>
+</li>
+<li><p>最容易想到的一来一回式的ACK管理有些浪费，采用滑动窗口方式更加高效。接收方需要告知对方自己最多能接收多少数据，以解决接收方来不及处理超量的数据导致接收缓冲区溢出的问题。</p>
+<p><img src="./image-20210912184953291.png" alt="image-20210912184953291"></p>
+</li>
+<li><p>接收方什么时候告知自己当前还能接收多少数据以及何时返回ACK号也是一个问题。</p>
+<p>分开来看，更新窗口信息发生在应用程序从接收缓冲区取出数据时就可以了；ACK号的回传发生在接收方收到没问题的数据时</p>
+<p>结合起来看，ACK回传可以和更新窗口在一个包里发送，减少包的数量；此外有连续的ACK或连续的窗口更新时，只需要发送最新的数据就可以。</p>
+</li>
+</ul>
+<h3 id="Step3-2-收发数据之http响应"><a href="#Step3-2-收发数据之http响应" class="headerlink" title="Step3.2:收发数据之http响应"></a>Step3.2:收发数据之http响应</h3><p>浏览器委托协议栈发送网络请求之后，就会调用<code>read</code>函数获取响应消息。</p>
+<blockquote>
+<p>两个操作是连接在一起的</p>
+</blockquote>
+<p>但是由于请求消息刚发送出去，还读不到数据，于是协议栈会将<code>read</code>操作挂起，等到服务器响应数据后再执行接收操作：</p>
+<ol>
+<li>接收时先判断是否有数据丢失，若无，返回ACK</li>
+<li>数据暂存到缓冲区，按顺序拼接</li>
+<li>将数据复制到应用程序指定的内存地址中</li>
+</ol>
+<ul>
+<li>择时发送窗口更新</li>
+</ul>
+<h3 id="Step4-断开-断开管道并删除套接字"><a href="#Step4-断开-断开管道并删除套接字" class="headerlink" title="Step4:断开-断开管道并删除套接字"></a>Step4:断开-断开管道并删除套接字</h3><p>调用<code>close</code>函数，任意一方都可发起断开管道。发起断开的一方调用该函数之后协议栈会生成包含断开信息的TCP头部(FIN=1)，同时在套接字中也会记录断开操作的信息。另一方收到含有FIN=1的头部时，会回传一个ACK以示收到。最后，也调用close函数结束操作。</p>
+<p>套接字不会立即删除，而是会等一段时间后再删除。</p>
+<h1 id="网卡数据如何经网线传入互联网"><a href="#网卡数据如何经网线传入互联网" class="headerlink" title="网卡数据如何经网线传入互联网"></a>网卡数据如何经网线传入互联网</h1><p><img src="./image-20210914205111016.png" alt="本章看点"></p>
+<blockquote>
+<p>信号如何在网线中传输？如何抗衰减？</p>
+<p>交换机如何工作？</p>
+<p>路由器如何工作？</p>
+<p>路由器的NAT与包过滤功能是什么？</p>
+</blockquote>
+<p>网卡中的PHY模块可以将包转换成电信号，信号(正负电压)经过RJ-45接口传入双绞线，网线接入集线器接口(这时信号有了衰减)。</p>
+<h2 id="双绞线"><a href="#双绞线" class="headerlink" title="双绞线"></a>双绞线</h2><h3 id="双绞的作用"><a href="#双绞的作用" class="headerlink" title="双绞的作用"></a><strong>双绞</strong>的作用</h3><ul>
+<li><p>抵消外部噪声</p>
+<p><img src="./image-20210914214021559.png" alt="image-20210914214021559"></p>
+<p>当电磁波接触到信号线时，会沿电磁波传播的右旋方向产生电流，这种电流会导致波形发生失真。如果我们将信号线缠绕在一起，信号线就变成了螺<br>旋形，其中两根信号线中产生的噪声电流方向就会相反，从而抵消，噪声得到了抑制。</p>
+</li>
+<li><p>抑制串扰</p>
+<p>相邻的信号线会相互影响：由于传输的信号本身就是一种电流，当电流流过时就会向周围发出电磁波，这些电磁波对于其他信号线来说就成了噪声。</p>
+<p><font color='red'>至于是如何通过改变节距抑制噪声的，暂时还没看明白</font></p>
+</li>
+</ul>
+<h3 id="双绞线的种类"><a href="#双绞线的种类" class="headerlink" title="双绞线的种类"></a>双绞线的种类</h3><p><img src="./image-20210914214746024.png" alt="image-20210914214746024"></p>
+<h2 id="集线器：广播信号"><a href="#集线器：广播信号" class="headerlink" title="集线器：广播信号"></a>集线器：广播信号</h2><p>简单来说，就是将加入的信号从所有的输出口输出。</p>
+<p>各PC检查目的地的MAC，如果是自己则保留。</p>
+<h2 id="交换机的包转发"><a href="#交换机的包转发" class="headerlink" title="交换机的包转发"></a>交换机的包转发</h2><p>信号到达网线接口之后，PHY模块进行接收，MAC模块将信号转为数字信息，FCS校验，无误则放入缓冲区(类似网卡做的事，但是不会检验MAC，而是保存所有的包)。</p>
+<p>包转发需要查<em>MAC地址表</em>，地址表中保存了MAC地址与端口的关系。</p>
+<p>交换机内部有很多开关，控制着输入与输出的连接(可多路并行工作)</p>
+<p><img src="./image-20210914221037975.png" alt="image-20210914221037975"></p>
+<p>地址表的维护</p>
+<ul>
+<li>有包要发送时，将发送方的端口和MAC写入表中</li>
+<li>记录并非长期有效，表项不使用后需要移除</li>
+<li>重启可以清空表</li>
+</ul>
+<h2 id="路由器的包转发"><a href="#路由器的包转发" class="headerlink" title="路由器的包转发"></a>路由器的包转发</h2><p>路由器内部可以简单分为转发模块和端口模块两部分。转发模块委托端口模块收发数据包(这种关系很像计算机中IP模块委托网卡)。</p>
+<p>在接收数据时，首先检验FCS序列，如果没问题，再看接收MAC是不是自己，如果是，则查表转发。</p>
+<blockquote>
+<p><strong>MAC 头 部的作用就是将包送达路由器</strong>，其中的接收方 MAC 地址就是路由器端口 的 MAC 地址。因此，<strong>当包到达路由器之后</strong>，MAC 头部的任务就完成了， 于是 <strong>MAC 头部就会被丢弃</strong></p>
+</blockquote>
+<p>交换机查表时最多值匹配一条记录，路由器匹配一个网段(像极了者车站候车|去xxx方向的旅客请到yyy检票口检票)</p>
+<p>在转发包的时候，带上自己的MAC地址</p>
+<blockquote>
+<p>● 如果路由表的网关列内容为 IP 地址，则该地址就是下一个转 发目标</p>
+<p> ● 如果路由表的网关列内容为空，则 IP 头部中的接收方 IP 地址 就是下一个转发目标。<font color='red'>这时候还能用ARP查到对方的MAC吗？</font></p>
+</blockquote>
+<p>关于路由器和交换机的区别：</p>
+<blockquote>
+<p><strong>简单来说，IP （路由器）负责将包发送给通信对象这一整体过程，而其中将包传输到下一 个路由器的过程则是由以太网（交换机）来负责的</strong></p>
+</blockquote>
+<h2 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h2><h3 id="私有地址"><a href="#私有地址" class="headerlink" title="私有地址"></a>私有地址</h3><p>内网中可用的私有地址范围：</p>
+<ul>
+<li>10.0.0.0 ～ 10.255.255.255</li>
+<li>172.16.0.0 ～ 172.31.255.255</li>
+<li>192.168.0.0 ～ 192.168.255.255</li>
+</ul>
+<p>内网中如果有设备有连接互联网的需求，需要使用地址转换的方式连接互联网。</p>
+<h3 id="地址转换的原理"><a href="#地址转换的原理" class="headerlink" title="地址转换的原理"></a>地址转换的原理</h3><p>维护一个地址转换表，使用不同的(TCP/UDP)端口号来区别内网中的 不同终端。</p>
+<p>端口号有16位，因此一个公网IP可以虚拟看作几万个私网IP</p>
+<h3 id="从互联网访问内网"><a href="#从互联网访问内网" class="headerlink" title="从互联网访问内网"></a>从互联网访问内网</h3><p>着对于没有在访问互联网的内网设备，是无法 从互联网向其发送网络包的，只要事先手动添加这样的记录就可以了。</p>
+<h2 id="路由器的包过滤"><a href="#路由器的包过滤" class="headerlink" title="路由器的包过滤"></a>路由器的包过滤</h2><p>在对包进行转发时，根据 MAC 头部、IP 头部、TCP 头部的内容 ，按照 事先设置好的规则决定是转发这个包，还是丢弃这个包</p>
+<h1 id="接入网-amp-运营商"><a href="#接入网-amp-运营商" class="headerlink" title="接入网&amp;运营商"></a>接入网&amp;运营商</h1><p>汪洋大海，浩浩汤汤。</p>
+<p><strong>接入网</strong>就是指连接互联网与家庭、公司网络的通信线路。家用的接入网方式包括 ADSL(Asymmetric Digital Subscriber Line)、FTTH、CATV、电话线、ISDN 等，公司 则还可能使用专线。</p>
+<h2 id="ADSL"><a href="#ADSL" class="headerlink" title="ADSL"></a>ADSL</h2><h3 id="MODEM"><a href="#MODEM" class="headerlink" title="MODEM"></a>MODEM</h3><p>ADSL Modem 将包拆分成ATM信元，并转换成电信号(使用QAM调制)发送给分离器。</p>
+<p><img src="./image-20210917155426559.png" alt="ADSL接入网"></p>
+<p>ADSL 使用间隔为 4.3125 kHz 的上百 个不同频率的波进行合成</p>
+<p><img src="./image-20210917162610412.png" alt="image-20210917162610412"></p>
+<p>当 Modem 通电后，会 发送测试信号，并根据信号的接收情况判断使用的频段数量和每个频段的 比特数，这个过程称为训练（握手），需要几秒到几十秒的时间。</p>
+<h3 id="分离器"><a href="#分离器" class="headerlink" title="分离器"></a>分离器</h3><p>分离器其实就是个filter，当信号从电话线传入，分离器负责将ADSL信号和话音信号(低频)分离。</p>
+<h2 id="PPP与隧道"><a href="#PPP与隧道" class="headerlink" title="PPP与隧道"></a>PPP与隧道</h2><p>PPP 协议：传统电话拨号上网时使用</p>
+<p>PPPoE：以太网的点对点协议</p>
+<h1 id="服务器端的局域网"><a href="#服务器端的局域网" class="headerlink" title="服务器端的局域网"></a>服务器端的局域网</h1><blockquote>
+<p>有关防火墙、缓存服务器、负载均衡器等等</p>
+</blockquote>
+<h2 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h2><p>专用的硬件或软件，作为路由器包转发规则 pro plus版本。</p>
+<p>作用是只允许发往指定服务器的指定应用程序的网络包通过，从而屏蔽其他不允许通过的包。</p>
+<h2 id="分布式架构-负载均衡"><a href="#分布式架构-负载均衡" class="headerlink" title="分布式架构-负载均衡"></a>分布式架构-负载均衡</h2><p>使用负载均衡器的IP代替Web服务器实际地址注册到DNS服务器上，由负载均衡器决定将请求转发给哪台Web服务器。</p>
+<p>为了区分不同的Client，引入Cookie技术。</p>
+<h2 id="缓存服务器-反向代理-转发-缓存"><a href="#缓存服务器-反向代理-转发-缓存" class="headerlink" title="缓存服务器-反向代理/转发/缓存"></a>缓存服务器-反向代理/转发/缓存</h2><p>缓存服务器也需要代替Web服务器的真实地址注册到DNS服务器中。</p>
+<p>一台缓存服务器可以对应多个Web服务器。</p>
+<p>无缓存的情形：</p>
+<p>客户端发消息-&gt;代理服务器接收-&gt;转发给Web服务器，HTTP请求中添加Via字段表示是转发的-&gt;Web服务器返回数据给缓存服务器-&gt;缓存服务器保存并响应给客户端</p>
+<p>有缓存的情形：</p>
+<p>客户端发消息-&gt;代理服务器接收-&gt;询问Web服务器消息是否有改变&gt;304未改变|改变后的内容-&gt;(缓存服务器保存并)响应给客户端</p>
+<h2 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h2><p>可以在浏览器中设置，写爬虫的时候也常常会用到代理服务器。</p>
+<h1 id="Web服务器响应请求"><a href="#Web服务器响应请求" class="headerlink" title="Web服务器响应请求"></a>Web服务器响应请求</h1><h2 id="服务器端的Socket"><a href="#服务器端的Socket" class="headerlink" title="服务器端的Socket"></a>服务器端的Socket</h2><p>服务器程序分为等待连接模块和通信模块，每当有一个客户端连接进来，就创建一个新的用于与客户端通信的程序，一一对应。</p>
+<p><img src="./image-20210918170142771.png" alt="image-20210918170142771"></p>
+<p>客户端的Socket操作</p>
+<blockquote>
+<p>创建套接字</p>
+<p>用管道连接服务器端的套接字</p>
+<p>收发数据</p>
+<p>断开管道并删除套接字</p>
+</blockquote>
+<p>服务器的Socket操作</p>
+<blockquote>
+<p>创建套接字:socket(…)</p>
+<p>将套接字设置为等待连接状态bind(描述符,port)并listen()、接受连接(等待包到达)</p>
+<p>收发数据</p>
+<p>断开管道并删除套接字</p>
+</blockquote>
+<h2 id="接收网络包"><a href="#接收网络包" class="headerlink" title="接收网络包"></a>接收网络包</h2><blockquote>
+<p>包收发部分，客户端和服务器没什么区别</p>
+</blockquote>
+<p>将信号转换成数字信号-&gt;FCS校验-&gt;检验接收方的MAC是否为自己-&gt;存到网卡缓冲区-&gt;网卡产生中断信号-&gt;CPU参与处理-&gt;检查IP地址、是否分片、协议号(如0x06 TCP)</p>
+<p>数据处理到TCP这部分时，如果收到的是发起连接的包，则 TCP 模块会（1）确认TCP 头 部的控制位 SYN；（2）检查接收方端口号；（3）为相应的等待连 接套接字复制一个新的副本；（4）记录发送方 IP 地址和端口号等信息。</p>
+<p>收到数据包时，TCP 模块会（1）根据收到的包的发送方 IP 地址、发送方端口号、接收方 IP 地址、接收方端口号找到相对应的套接字；（2）将数据块拼合起来并保存在接收缓冲区中；（3）向客户端返回 ACK。</p>
+<h2 id="服务器解析请求消息、作出响应"><a href="#服务器解析请求消息、作出响应" class="headerlink" title="服务器解析请求消息、作出响应"></a>服务器解析请求消息、作出响应</h2><p>Web 服务器公开的目录其实并不是磁盘上的实际目录，而是虚拟目录</p>
+<p><img src="./image-20210918173902489.png" alt="image-20210918173902489"></p>
+<p>如果 URI 指定的文件内容为 HTML文档或图片，那么只要直接将文 件内容作为响应消息返回客户端就可以了。</p>
+<p>URI指向一个CGI程序时，服务器会运行这个程序，然后将程序输出的数据返回给客户端。</p>
+<h2 id="Web服务器的访问控制"><a href="#Web服务器的访问控制" class="headerlink" title="Web服务器的访问控制"></a>Web服务器的访问控制</h2><p>设置一些规则(客户端的IP/用户名&amp;密码)控制访问权限</p>
+<h2 id="返回响应消息"><a href="#返回响应消息" class="headerlink" title="返回响应消息"></a>返回响应消息</h2><p>调用write()</p>
+<h1 id="浏览器展示响应结果"><a href="#浏览器展示响应结果" class="headerlink" title="浏览器展示响应结果"></a>浏览器展示响应结果</h1><h2 id="使用Content-Type-判断数据类型"><a href="#使用Content-Type-判断数据类型" class="headerlink" title="使用Content-Type 判断数据类型"></a>使用Content-Type 判断数据类型</h2><p>如何展示结果取决于消息的类型(Content-Type)，使用斜线划分为两个部分，前面为主类型，后面为子类型：</p>
+<p><img src="./image-20210918175559253.png" alt="image-20210918175559253"></p>
+<p>此外，当数据类型为文本时，还需要判断编码方式，这时需要用 charset 附加表示文本编码方式的信息，例如</p>
+<p><code>Content-Type: text/html; charset=utf-8</code></p>
+<h2 id="展示数据"><a href="#展示数据" class="headerlink" title="展示数据"></a>展示数据</h2><p>使用插件或第三方程序展示出数据，over~</p>
+<h1 id="附"><a href="#附" class="headerlink" title="附"></a>附</h1><p>《一个packet的使命》</p>
+<p><img src="./image-20210918180730721.png" alt="image-20210918180730721"></p>
 
     </div>
 
