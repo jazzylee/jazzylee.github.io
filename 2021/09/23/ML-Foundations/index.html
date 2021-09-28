@@ -22,26 +22,123 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jazzylee.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.6.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 <meta name="description" content="了解了些矩阵论之后再看基石，会不会有些新的发现呢？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Machine Learning Foundations">
+<meta property="og:title" content="机器学习基石">
 <meta property="og:url" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/index.html">
 <meta property="og:site_name" content="北游记">
 <meta property="og:description" content="了解了些矩阵论之后再看基石，会不会有些新的发现呢？">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations//image-20210923190116004.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210923190949037.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210923192052012.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210923192313319.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210923194655979.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210923194441453.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210923200927586.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210924003934634.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210924210206047.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210924211632301.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210924213009612.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210924213613834.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210924213717501.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210924215025179.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations//image-20210925140156977.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210925140421415.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations//image-20210925143217871.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations//image-20210925143615629.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations//image-20210925145320843.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations//image-20210925145607640.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations//image-20210925145916505.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations//image-20210925150149939.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations//image-20210925150347885.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations//image-20210925151215758.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations//image-20210925153006584.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations//image-20210925153331652.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations//image-20210925154455418.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations//image-20210925155806211.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations//image-20210925161308824.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations//image-20210925163132251.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210925221017033.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210925231948633.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210925232344731.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210925232601687.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210925232804146.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926000156771.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926000606557.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926003042057.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926003116356.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926004854869.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926005026637.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926005144859.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926005513968.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926010638059.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926141737468.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926150040602.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926150216838.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926143435464.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926153019095.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926153835240.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926154426912.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926154833064.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926155504214.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926155334888.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926155955855.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926165420114.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210926165520635.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927084256216.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927001515999.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927002420007.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927002800497.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927003203922.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927003340129.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927003720404.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927003839100.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927004617104.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927004749022.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927004822811.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927004852111.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927090106887.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927090822030.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927091454663.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927105558433.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927110538834.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927195027265.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927195040057.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927195314258.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927192211495.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927192222760.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927192233866.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927192243354.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927192718940.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927192802299.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927193557595.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927201448031.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927202045085.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927202200779.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927202417483.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927202700812.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210927202949619.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210928154143450.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210928155853290.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210928160128565.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210928160236117.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210928160447822.png">
+<meta property="og:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations/image-20210928160805583.png">
 <meta property="article:published_time" content="2021-09-22T16:24:28.000Z">
-<meta property="article:modified_time" content="2021-09-22T16:37:10.409Z">
+<meta property="article:modified_time" content="2021-09-28T08:13:19.909Z">
 <meta property="article:author" content="movice">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jazzylee.github.io/2021/09/23/ML-Foundations/ML-Foundations//image-20210923190116004.png">
 
 
 <link rel="canonical" href="https://jazzylee.github.io/2021/09/23/ML-Foundations/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jazzylee.github.io/2021/09/23/ML-Foundations/","path":"2021/09/23/ML-Foundations/","title":"Machine Learning Foundations"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jazzylee.github.io/2021/09/23/ML-Foundations/","path":"2021/09/23/ML-Foundations/","title":"机器学习基石"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Machine Learning Foundations | 北游记</title>
+<title>机器学习基石 | 北游记</title>
   
 
 
@@ -120,7 +217,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#When-can-machines-learn"><span class="nav-number">1.</span> <span class="nav-text">When can machines learn?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Why-can-machines-learn"><span class="nav-number">2.</span> <span class="nav-text">Why can machines learn?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-can-machines-learn"><span class="nav-number">3.</span> <span class="nav-text">How can machines learn?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-can-machines-learn-Better"><span class="nav-number">4.</span> <span class="nav-text">How can machines learn Better?</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E6%89%8D%E8%83%BD%E5%AD%A6%E4%B9%A0%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">机器什么时候才能学习？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%AD%A6%E4%B9%A0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.</span> <span class="nav-text">关于学习的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%AF%E9%9D%9E%E9%A2%98-%E4%BA%8C%E5%85%83%E5%88%86%E7%B1%BB-by%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">是非题(二元分类)by线性分类器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E7%A7%8D%E7%AE%80%E5%8D%95%E7%9A%84%E5%81%87%E8%AF%B4%E9%9B%86%EF%BC%9A%E6%84%9F%E7%9F%A5%E6%9C%BA-perceptron"><span class="nav-number">1.2.1.</span> <span class="nav-text">一种简单的假说集：感知机(perceptron)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PLA-perceptron-learning-algorithm-%E6%BC%94%E7%AE%97%E6%B3%95%EF%BC%9A%E5%A6%82%E4%BD%95%E4%BB%8E%E5%81%87%E8%AF%B4%E9%9B%86%E4%B8%AD%E6%89%BE%E4%B8%80%E4%B8%AA%E6%8E%A5%E8%BF%91f%E7%9A%84g%EF%BC%9F"><span class="nav-number">1.2.2.</span> <span class="nav-text">PLA(perceptron learning  algorithm)演算法：如何从假说集中找一个接近f的g？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8BPLA%E5%8F%AF%E4%BB%A5%E5%81%9C%E4%B8%8B%E6%9D%A5%EF%BC%9F"><span class="nav-number">1.2.3.</span> <span class="nav-text">在什么情况下PLA可以停下来？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%99%85%E6%95%B0%E6%8D%AE%E4%B8%AD%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="nav-number">1.2.4.</span> <span class="nav-text">实际数据中怎么办？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#g%E5%92%8Cf%E4%B8%80%E6%A0%B7%E5%90%97%EF%BC%9F"><span class="nav-number">1.2.5.</span> <span class="nav-text">g和f一样吗？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E4%BB%BB%E5%8A%A1%E5%88%86%E7%B1%BB"><span class="nav-number">1.3.</span> <span class="nav-text">机器学习的任务分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E8%BE%93%E5%87%BA%E7%A9%BA%E9%97%B4"><span class="nav-number">1.3.1.</span> <span class="nav-text">根据输出空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E6%A0%87%E6%B3%A8"><span class="nav-number">1.3.2.</span> <span class="nav-text">根据标注</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%96%82%E8%B5%84%E6%96%99%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">1.3.3.</span> <span class="nav-text">喂资料的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E7%9A%84%E7%89%B9%E5%BE%81"><span class="nav-number">1.3.4.</span> <span class="nav-text">输入的特征</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%8F%AF%E8%A1%8C%E6%80%A7"><span class="nav-number">1.4.</span> <span class="nav-text">机器学习的可行性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E5%B7%B2%E6%9C%89%E8%B5%84%E6%96%99%E4%B8%8A%E8%83%BD%E5%A4%9F%E8%BF%91%E4%BC%BCf%E7%9A%84g%E8%83%BD%E5%9C%A8%E6%9C%AA%E7%9F%A5%E6%95%B0%E6%8D%AE%E4%B8%AD%E8%A1%A8%E7%8E%B0%E5%BE%97%E5%A5%BD%E5%90%97%EF%BC%9F%E7%94%B1%E4%BB%80%E4%B9%88%E4%BF%9D%E8%AF%81%EF%BC%9F"><span class="nav-number">1.4.1.</span> <span class="nav-text">在已有资料上能够近似f的g能在未知数据中表现得好吗？由什么保证？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hoeffding%E4%B8%8D%E7%AD%89%E5%BC%8F"><span class="nav-number">1.4.2.</span> <span class="nav-text">Hoeffding不等式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%87%E8%AF%B4%E9%9B%86%E4%B8%AD%E6%9C%89%E6%9C%89%E9%99%90%E4%B8%AA%E5%81%87%E8%AF%B4"><span class="nav-number">1.4.3.</span> <span class="nav-text">假说集中有有限个假说</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%87%E8%AF%B4%E9%9B%86%E4%B8%AD%E6%9C%89%E6%97%A0%E9%99%90%E4%B8%AA%E5%81%87%E8%AF%B4"><span class="nav-number">1.4.4.</span> <span class="nav-text">假说集中有无限个假说</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E5%AD%A6%E4%B9%A0%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">机器为什么能学习？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E6%83%85%E6%8F%90%E8%A6%81"><span class="nav-number">2.1.</span> <span class="nav-text">前情提要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E9%99%90%E5%A4%A7%E7%9A%84%E5%81%87%E8%AF%B4%E9%9B%86"><span class="nav-number">2.2.</span> <span class="nav-text">无限大的假说集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E4%B8%AD%E6%9C%89%E6%95%88%E7%BA%BF-%E5%81%87%E8%AF%B4-%E7%9A%84%E6%95%B0%E9%87%8F"><span class="nav-number">2.2.1.</span> <span class="nav-text">感知机中有效线(假说)的数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E7%BB%B4%E7%A9%BA%E9%97%B4%E4%B8%AD%E6%9C%89%E6%95%88%E5%81%87%E8%AF%B4%E7%9A%84%E6%95%B0%E9%87%8F-%E6%88%90%E9%95%BF%E5%87%BD%E6%95%B0"><span class="nav-number">2.2.2.</span> <span class="nav-text">高维空间中有效假说的数量-成长函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%A0%E4%B8%AA%E7%AE%80%E5%8D%95%E5%81%87%E8%AF%B4%E9%9B%86%E7%9A%84%E6%88%90%E9%95%BF%E5%87%BD%E6%95%B0"><span class="nav-number">2.2.3.</span> <span class="nav-text">几个简单假说集的成长函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Positive-Rays-1D-perceptron"><span class="nav-number">2.2.3.1.</span> <span class="nav-text">Positive Rays(1D perceptron)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Positive-Intervals-interval%E4%B9%8B%E5%86%85%E5%88%A4%E4%B8%BA%E6%AD%A3"><span class="nav-number">2.2.3.2.</span> <span class="nav-text">Positive Intervals(interval之内判为正)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%B8%E9%9B%86%E5%90%88-shatter-example"><span class="nav-number">2.2.3.3.</span> <span class="nav-text">凸集合-shatter example</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%87%E8%AF%B4%E9%9B%86%E7%9A%84break-point"><span class="nav-number">2.2.4.</span> <span class="nav-text">假说集的break point</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bounding-function"><span class="nav-number">2.2.5.</span> <span class="nav-text">bounding function</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#mH-N-%E4%B8%8Ebreak-point%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">2.2.5.1.</span> <span class="nav-text">mH(N)与break point的关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bounding-function-B-N-k"><span class="nav-number">2.2.5.2.</span> <span class="nav-text">bounding function:B(N,k)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hoeffding%E4%B8%8D%E7%AD%89%E5%BC%8F%E5%9C%A8%E6%97%A0%E9%99%90%E5%A4%9A%E5%81%87%E8%AF%B4%E7%9A%84%E5%81%87%E8%AF%B4%E9%9B%86%E4%B8%8B%E7%9A%84%E8%A1%A8%E7%A4%BA-VC-bound"><span class="nav-number">2.2.6.</span> <span class="nav-text">hoeffding不等式在无限多假说的假说集下的表示-VC bound</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VC-dimension-ML%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E5%B7%A5%E5%85%B7"><span class="nav-number">2.3.</span> <span class="nav-text">VC dimension-ML最重要的工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BB%B4%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84VC-dimension"><span class="nav-number">2.3.1.</span> <span class="nav-text">多维感知机的VC dimension</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VC-dimension%E4%B8%8E%E5%81%87%E8%AF%B4%E9%9B%86%E7%9A%84%E8%87%AA%E7%94%B1%E5%BA%A6-%E6%A8%A1%E5%9E%8B%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">2.3.2.</span> <span class="nav-text">VC dimension与假说集的自由度(模型复杂度)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3VC-Bound"><span class="nav-number">2.3.3.</span> <span class="nav-text">深入理解VC Bound</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">2.3.3.1.</span> <span class="nav-text">模型复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B7%E6%9C%AC%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">2.3.3.2.</span> <span class="nav-text">样本复杂度</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%99%AA%E5%A3%B0%E4%B8%8EError-measure-lesson8"><span class="nav-number">2.4.</span> <span class="nav-text">噪声与Error measure(lesson8)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Error-measure"><span class="nav-number">2.4.1.</span> <span class="nav-text">Error measure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E5%85%B3cost%E3%80%81loss%E3%80%81error%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95"><span class="nav-number">2.4.2.</span> <span class="nav-text">有关cost、loss、error的一些想法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%E7%9A%84%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">机器是如何学习的？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#linear-regression"><span class="nav-number">3.1.</span> <span class="nav-text">linear regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-number">3.1.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%BC%94%E7%AE%97%E6%B3%95"><span class="nav-number">3.1.2.</span> <span class="nav-text">线性回归演算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%9B%E5%8C%96%E7%9B%B8%E5%85%B3%E7%9A%84%E9%97%AE%E9%A2%98-P36"><span class="nav-number">3.1.3.</span> <span class="nav-text">泛化相关的问题(P36)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%81%9A%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB"><span class="nav-number">3.1.4.</span> <span class="nav-text">使用线性回归做线性分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#logistic-regression"><span class="nav-number">3.2.</span> <span class="nav-text">logistic regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#logistic-hypothesis"><span class="nav-number">3.2.2.</span> <span class="nav-text">logistic hypothesis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#error-measure"><span class="nav-number">3.2.3.</span> <span class="nav-text">error measure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#optimization"><span class="nav-number">3.2.4.</span> <span class="nav-text">optimization</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%A6%82%E4%BD%95%E6%89%8D%E8%83%BD%E5%AD%A6%E5%BE%97%E6%9B%B4%E5%A5%BD%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">机器如何才能学得更好？</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -164,7 +261,7 @@
       <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=V7pseSmYqG3eRqg-m6VS1UxwXHXL8gIybqq7QtBtLug&cl=ffffff&w=a"></script>
     </div>
     <!--music-->
-    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1791380&auto=0&height=66"></iframe>
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=509720124&auto=0&height=66"></iframe>
   </aside>
   <div class="sidebar-dimmer"></div>
 
@@ -206,7 +303,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Machine Learning Foundations
+          机器学习基石
         </h1>
 
         <div class="post-meta-container">
@@ -216,10 +313,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-09-23 00:24:28 / Modified: 00:37:10" itemprop="dateCreated datePublished" datetime="2021-09-23T00:24:28+08:00">2021-09-23</time>
+      <time title="Created: 2021-09-23 00:24:28" itemprop="dateCreated datePublished" datetime="2021-09-23T00:24:28+08:00">2021-09-23</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-09-28 16:13:19" itemprop="dateModified" datetime="2021-09-28T16:13:19+08:00">2021-09-28</time>
+      </span>
 
   
     <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
@@ -241,7 +344,733 @@
         <p>了解了些矩阵论之后再看基石，会不会有些新的发现呢？</p>
 <span id="more"></span>
 
-<h1 id="When-can-machines-learn"><a href="#When-can-machines-learn" class="headerlink" title="When can machines learn?"></a>When can machines learn?</h1><h1 id="Why-can-machines-learn"><a href="#Why-can-machines-learn" class="headerlink" title="Why can machines learn?"></a>Why can machines learn?</h1><h1 id="How-can-machines-learn"><a href="#How-can-machines-learn" class="headerlink" title="How can machines learn?"></a>How can machines learn?</h1><h1 id="How-can-machines-learn-Better"><a href="#How-can-machines-learn-Better" class="headerlink" title="How can machines learn Better?"></a>How can machines learn <font color ='orange'>Better</font>?</h1>
+<h1 id="机器什么时候才能学习？"><a href="#机器什么时候才能学习？" class="headerlink" title="机器什么时候才能学习？"></a>机器什么时候才能学习？</h1><h2 id="关于学习的问题"><a href="#关于学习的问题" class="headerlink" title="关于学习的问题"></a>关于<font color='orange'>学习</font>的问题</h2><ul>
+<li><p>模型</p>
+<p>指的是演算法以及使用的假说集合</p>
+</li>
+<li><p><font color='orange'>ML Roadmap-version1</font></p>
+<img src="./ML-Foundations//image-20210923190116004.png" alt="image-20210923190116004" style="zoom:67%;" />
+
+<p>从资料出发，使用演算法再假说集合中找到一个假说g，希望g与生成资料的f很接近</p>
+</li>
+</ul>
+<h2 id="是非题-二元分类-by线性分类器"><a href="#是非题-二元分类-by线性分类器" class="headerlink" title="是非题(二元分类)by线性分类器"></a>是非题(二元分类)by线性分类器</h2><h3 id="一种简单的假说集：感知机-perceptron"><a href="#一种简单的假说集：感知机-perceptron" class="headerlink" title="一种简单的假说集：感知机(perceptron)"></a>一种简单的假说集：感知机(perceptron)</h3><p>以是否发放信用卡为例，申请人的多种维度(如年纪、年薪等等)特征使用不同的权重加权，如果加权求和之后的结果大于某个threshold，就发放信用卡(记为+1)，反之不发放(记为-1)。</p>
+<img src="./ML-Foundations/image-20210923190949037.png" alt="image-20210923190949037" style="zoom: 67%;" />
+
+<blockquote>
+<p> <font color='red'>h</font>表示可能的公式，和<font color='red'>w</font>以及<font color='blue'>threshold</font>有关，不同的权重/门槛对应不同的<font color='red'>h</font></p>
+</blockquote>
+<p>在二维情况下， h就是直线(也可以叫做超平面)，</p>
+<img src="./ML-Foundations/image-20210923192052012.png" alt="image-20210923192052012" style="zoom:50%;" />
+
+<p>在一边值为正，另一边值为负。不同的w对应不同的分割线，w跑遍所有取值可能就对应着假说集。</p>
+<img src="./ML-Foundations/image-20210923192313319.png" alt="image-20210923192313319" style="zoom:67%;" />
+
+<h3 id="PLA-perceptron-learning-algorithm-演算法：如何从假说集中找一个接近f的g？"><a href="#PLA-perceptron-learning-algorithm-演算法：如何从假说集中找一个接近f的g？" class="headerlink" title="PLA(perceptron learning  algorithm)演算法：如何从假说集中找一个接近f的g？"></a>PLA(perceptron learning  algorithm)演算法：如何从假说集中找一个接近f的g？</h3><p>出发点：g接近f的必要条件是在已经看过的资料上，相同的输入有近似的输出</p>
+<p>做法：随机找一条由<em><strong>w0</strong></em>确定的线(<em><strong>w0</strong></em>是分割线的法向量)，并根据其在数据中犯的错误逐步修正<em><strong>w</strong></em></p>
+<p>修正：</p>
+<ul>
+<li><p><em><strong>(w^T)x</strong></em>本该是+，判为-的情况：说明w和x的夹角太大了，需要修正使其夹角减小。令新的<em><strong>w=w+x</strong></em></p>
+</li>
+<li><p><em><strong>(w^T)x</strong></em>本该是-，判为+的情况：说明w和x的夹角太小了，需要修正使其夹角变大。令新的<em><strong>w=w-x</strong></em></p>
+</li>
+<li><p><font color='orange'>逐步修正，直到不犯错误为止</font></p>
+</li>
+<li><p>总结</p>
+<img src="./ML-Foundations/image-20210923194655979.png" alt="image-20210923194655979" style="zoom:50%;" />
+
+<img src="./ML-Foundations/image-20210923194441453.png" alt="image-20210923194441453" style="zoom:50%;" /></li>
+</ul>
+<h3 id="在什么情况下PLA可以停下来？"><a href="#在什么情况下PLA可以停下来？" class="headerlink" title="在什么情况下PLA可以停下来？"></a>在什么情况下PLA可以停下来？</h3><p>如果数据是<font color='orange'>线性可分</font>的，那么PLA可以停在不犯错误的地方。</p>
+<blockquote>
+<p>Note：线性可分的数学描述</p>
+<p><img src="./ML-Foundations/image-20210923200927586.png" alt="image-20210923200927586"></p>
+</blockquote>
+<p>证明：</p>
+<h3 id="实际数据中怎么办？"><a href="#实际数据中怎么办？" class="headerlink" title="实际数据中怎么办？"></a>实际数据中怎么办？</h3><p>实际数据中可能会有noise，外加其他的原因可能会导致数据不是线性可分的。</p>
+<p><font color='orange'>ML Roadmap-version2</font></p>
+<p><img src="ML-Foundations/image-20210924003934634.png" alt="image-20210924003934634"></p>
+<p>如果能找到一个犯总错误最少的g就好了<font color='red'>(NP-hard)</font></p>
+<p>考虑使用Pocket贪心算法，<em><strong>w</strong></em>迭代更新足够多次，得到这种情况下<strong>犯错最少</strong>的<em><strong>w</strong></em></p>
+<blockquote>
+<p>这里为了找到犯错最少的<em><strong>w</strong></em>，需要让Pocket每次都遍历所有的点，另外还要花时间存储当下最好的<em><strong>w</strong></em>。因此相比PLA更加耗时</p>
+</blockquote>
+<h3 id="g和f一样吗？"><a href="#g和f一样吗？" class="headerlink" title="g和f一样吗？"></a>g和f一样吗？</h3><h2 id="机器学习的任务分类"><a href="#机器学习的任务分类" class="headerlink" title="机器学习的任务分类"></a>机器学习的任务分类</h2><h3 id="根据输出空间"><a href="#根据输出空间" class="headerlink" title="根据输出空间"></a>根据输出空间</h3><ul>
+<li><font color='orange'>是非题(二元分类)</font></li>
+<li>单选题(多元分类)</li>
+<li><font color='orange'>回归分析(输出为实数)</font></li>
+<li>结构化学习(输出空间有一定的结构，如语法树)</li>
+</ul>
+<h3 id="根据标注"><a href="#根据标注" class="headerlink" title="根据标注"></a>根据标注</h3><ul>
+<li>有监督</li>
+<li>无监督:例如异常检测(outlier detection)</li>
+<li> 半监督</li>
+<li>强化学习：根据间接的输出及奖惩。例如根据顾客的反应训练一个推广系统。</li>
+</ul>
+<h3 id="喂资料的方式"><a href="#喂资料的方式" class="headerlink" title="喂资料的方式"></a>喂资料的方式</h3><ul>
+<li>batch learning</li>
+<li>online learning</li>
+<li>active learning</li>
+</ul>
+<h3 id="输入的特征"><a href="#输入的特征" class="headerlink" title="输入的特征"></a>输入的特征</h3><ul>
+<li>concreate feature：经过domain knowledge预处理的</li>
+<li>raw feature</li>
+<li>abstract feature：更加抽象的特征，如某顾客对某商品的评价等等</li>
+</ul>
+<h2 id="机器学习的可行性"><a href="#机器学习的可行性" class="headerlink" title="机器学习的可行性"></a>机器学习的可行性</h2><h3 id="在已有资料上能够近似f的g能在未知数据中表现得好吗？由什么保证？"><a href="#在已有资料上能够近似f的g能在未知数据中表现得好吗？由什么保证？" class="headerlink" title="在已有资料上能够近似f的g能在未知数据中表现得好吗？由什么保证？"></a>在已有资料上能够近似f的g能在未知数据中表现得好吗？由什么保证？</h3><blockquote>
+<p>前言：</p>
+<p>在训练的时候要使Ein接近0，如果在测试的时候Eout接近Ein，那么可以说机器学到东西了。</p>
+</blockquote>
+<p>以下图为例，输入是3bit数据，输出是其类别，用⭕或❌表示，假设有一个 g能在已经看到的几笔资料上表现得很好(g=f@D)，那么对于没看到的三笔资料，无论g给出什么结果，都有可能是错的</p>
+<img src="ML-Foundations/image-20210924210206047.png" alt="image-20210924210206047" style="zoom:50%;" />
+
+<h3 id="Hoeffding不等式"><a href="#Hoeffding不等式" class="headerlink" title="Hoeffding不等式"></a><font color='orange'>Hoeffding不等式</font></h3><p>在一个罐子里有绿色和橘色(比例为μ)的弹珠，从中取N个出来，橘色弹珠的比例为ν，当N足够大的时候，ν和μ之差不超过ϵ的概率有上界：</p>
+<img src="ML-Foundations/image-20210924211632301.png" alt="image-20210924211632301" style="zoom:50%;" />
+
+<p>将上面的弹珠模型类比到机器学习中，罐子中的弹珠类比成<font color='red'><strong>一个假说下</strong></font>g是否与f在数据上是接近的：</p>
+<img src="ML-Foundations/image-20210924213009612.png" alt="image-20210924213009612" style="zoom:50%;" />
+
+<p>可以通过已有资料D上g的表现(in-sample error)推测未知资料中g的表现(out-of-sample erroe)</p>
+<img src="ML-Foundations/image-20210924213613834.png" alt="image-20210924213613834" style="zoom:50%;" />
+
+<p>Hoeffding不等式使用Ein，Eout重写如下，所以如果已有资料上g和f很接近，即Ein很小，那么Eout就(以概率P)很小。</p>
+<img src="ML-Foundations/image-20210924213717501.png" alt="image-20210924213717501" style="zoom:50%;" />
+
+<p>上面的类比和推论是在<font color='red'>“一个罐子”</font>下做的，即只对应于一个假说的情况，这种流程更像是在验证一个固定的假说是否ok</p>
+<p><font color='orange'>ML Roadmap-version2.5</font></p>
+<img src="ML-Foundations/image-20210924215025179.png" alt="image-20210924215025179" style="zoom:67%;" />
+
+<p>如果有一个假说集(多个罐子)呢？</p>
+<h3 id="假说集中有有限个假说"><a href="#假说集中有有限个假说" class="headerlink" title="假说集中有有限个假说"></a>假说集中有有限个假说</h3><blockquote>
+<p>前面是证明了在一个h的情况下，当样本的数量足够多，该h在样本集上的表现可以代表它与真实f的接近程度，抽样能很好地代表总体。</p>
+<p>这一节是说在假设集很大/h有很多个的情况下，会倾向于选择让Ein(h)最小的那个h，导致恶化。但只要N足够大，样本几乎和总体一样，那么无论怎么选D和h都不会踩雷</p>
+</blockquote>
+<p>在前面一节，只有一个罐子，hoeffding不等式说明了抽样出的弹珠中橘色的比例与整个罐子中橘色的比例很接近。</p>
+<p>类比来说，只有一个假说h时(所以这个h就是前面提到的g)，对于每一笔数据，在该假说下都有一个取值(可以用二维感知机想象一下)，若该值与真实分布f下所得到的值不同，可以将其类比成一个橘色的弹珠，也就是说，这是一个坏的资料，hoeffding不等式说明了该h在已有的样本数据D上的表现(h与f不一样的概率)接近于全部数据上的表现。</p>
+<hr>
+
+<p>在罐子很多的情况下，从罐子中抽一把弹珠出来，如果有一把抽到的是全绿的弹珠(当罐子很多的时候，这件事极有可能发生，举个例子，抛5次硬币，全部正面朝上定义为坏的结果，那么一个人抛的时候，产生坏结果的概率为1/32，但是如果有150人在抛硬币，产生坏结果的概率大于99％)，那么能保证在整个罐子里几乎都是绿色的吗？</p>
+<p>类比来说，就是假说集中有多个假说的情况(这时候假说假说集合H中有很多个假说h，从H中找一个表现最好的作为g，接下来讨论的是g的表现能否接近真实的分布h)也就是说有有限个罐子，每一个罐子对应一种假说。在不同的假说下，各个罐子中弹珠的颜色分布会有所区别，如果用演算法找到了某个假说h作为g，发现这个假说在已有的样本数据D上表现得非常好，那么这个g与真实的f差别怎么样？能说此时机器学到了东西吗？</p>
+<hr>
+
+<p>看几个定义</p>
+<ul>
+<li><p>一个假说下的坏资料：Ein小，但是Eout大的资料，也就是hoeffding不能完全保证的部分。hoeffding说的是对于同一个假说h，在各种资料的取法中，坏资料的数量并不多</p>
+</li>
+<li><p>多个假说下的好资料：演算法不管选了哪个h，资料的表现都能反映整体数据的表现；</p>
+</li>
+<li><p>多个假说下的坏资料(地雷)：演算法不能自由做选择，即资料在某些h下不能反映真实的分布(踩雷了)</p>
+</li>
+</ul>
+<img src="ML-Foundations//image-20210925140156977.png" alt="image-20210925140156977" style="zoom:50%;" />
+
+<p>对于有限个假说，如M个，遇到坏资料的概率有一个上限(<font color='orange'>union bound</font>)：</p>
+<img src="ML-Foundations/image-20210925140421415.png" alt="image-20210925140421415" style="zoom:50%;" />
+
+<p>也就是说，对于有限个假说，如果资料量够多，不管演算法怎么选，可以找到一个g，在这个g下踩雷(g下的推测与真实结果不一样)的概率很小。</p>
+<h3 id="假说集中有无限个假说"><a href="#假说集中有无限个假说" class="headerlink" title="假说集中有无限个假说"></a>假说集中有无限个假说</h3><p>即使是对于二维的感知机来说，假说集合也是无限大的，那么对于无限个假说的假说集来说，如何保证能学到东西？这个证明有亿点难，下回分解。</p>
+<h1 id="机器为什么能学习？"><a href="#机器为什么能学习？" class="headerlink" title="机器为什么能学习？"></a>机器为什么能学习？</h1><h2 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h2><p>让机器能学习要解答这两个问题</p>
+<ul>
+<li>如何确保Eout(g)接近Ein(g)？</li>
+<li>如何让Ein(g)足够小？</li>
+</ul>
+<p>引入一个记号：<font color='orange'>假说集的大小：|H|=M</font>，M和这两个问题的关系：</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">小M</th>
+<th align="center">大M</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">优</td>
+<td align="center">踩雷(Ein和Eout不接近)的概率低</td>
+<td align="center">选择多</td>
+</tr>
+<tr>
+<td align="center">劣</td>
+<td align="center">演算法的选择少，在有限个选择中不一定存在Ein很小的假说</td>
+<td align="center">踩雷概率变大，Ein与Eout有多接近的保证比较弱</td>
+</tr>
+</tbody></table>
+<p>回到上一节最后留下来的问题，如果M是无穷大呢？</p>
+<p>显然，直接带入hoeffding不等式是自寻死路：</p>
+<img src="ML-Foundations//image-20210925143217871.png" alt="image-20210925143217871" style="zoom: 50%;" />
+
+<p><font color='orange'>union bound</font>的过度估计使M→∞时没法用hoeffding来表示坏事情发生的概率，如何将无限多个假说分成有限多个类别？</p>
+<blockquote>
+<p>预告一下：</p>
+<p>接下来将逐步引入一个符号<font color='orange'>mH</font>，符号中小写的m表示这是一个比M小的数，H表示它和假说集的某些性质有关，并证明可以用它替换掉无限大的M</p>
+<img src="ML-Foundations//image-20210925143615629.png" alt="image-20210925143615629" style="zoom:50%;" />
+</blockquote>
+<h2 id="无限大的假说集"><a href="#无限大的假说集" class="headerlink" title="无限大的假说集"></a>无限大的假说集</h2><h3 id="感知机中有效线-假说-的数量"><a href="#感知机中有效线-假说-的数量" class="headerlink" title="感知机中有效线(假说)的数量"></a>感知机中有效线(假说)的数量</h3><p>如果只有<font color='orange'>一笔资料</font>，平面上无穷多的线只有两类，一类是将其分成+类的线，另一类是将其分成-类的线</p>
+<img src="ML-Foundations//image-20210925145320843.png" alt="image-20210925145320843" style="zoom:50%;" />
+
+<p>如果存在<font color='orange'>两笔资料</font>，平面上无穷多的线分为四类</p>
+<img src="ML-Foundations//image-20210925145607640.png" alt="image-20210925145607640" style="zoom:50%;" />
+
+<p>如果存在<font color='orange'>三笔资料</font>，平面上无穷多的线**最多(**不共线)分为八类</p>
+<img src="ML-Foundations//image-20210925145916505.png" alt="image-20210925145916505" style="zoom:50%;" />
+
+<p>但是如果共线，平面上的线只有六种</p>
+<img src="ML-Foundations//image-20210925150149939.png" alt="image-20210925150149939" style="zoom:50%;" />
+
+<p>如果存在<font color='orange'>四笔资料</font>，平面上无穷多的线最多(不共线)分为<font color='red'>14</font>类(版面受限，只画了一半出来，另一半是对称的)</p>
+<img src="ML-Foundations//image-20210925150347885.png" alt="image-20210925150347885" style="zoom:50%;" />
+
+<p>对于N个输入点来说，能够产生的最多类别线的数量定义为<font color='orange'><strong>有效线数量</strong></font>。总结成一张表，发现当样本点数量N=4的时候，有效线的数量已经开始小于2^N</p>
+<table>
+<thead>
+<tr>
+<th align="center">N</th>
+<th align="center">effective(N)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">8</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">14<font color='orange'>&lt;2^N</font></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>到这里可以停下来设想一下，如果effective(N)的增长速度不是很快，并且可以取代M的话，那么就意味着当假说集存在无穷多个假说的时候，学习也是可行的</p>
+<img src="ML-Foundations//image-20210925151215758.png" alt="image-20210925151215758" style="zoom:50%;" />
+</blockquote>
+<h3 id="高维空间中有效假说的数量-成长函数"><a href="#高维空间中有效假说的数量-成长函数" class="headerlink" title="高维空间中有效假说的数量-成长函数"></a>高维空间中有效假说的数量-<font color='orange'>成长函数</font></h3><p>上面<strong>有效线数量</strong>是二维空间中假说集的类别数量，那么对于更高维度的空间，如何描述假说集合类别的数量呢？</p>
+<p>假说集H将输入空间中的向量分类成⭕和❌两种情形，有效假说的数量就是对于N个点来说，能够产生的⭕和❌组合的数量。组合叫做<font color='orange'><strong>dichotomy set</strong></font>，用     H(x1,x2,…)表示</p>
+<p><img src="ML-Foundations//image-20210925153006584.png" alt="image-20210925153006584"></p>
+<img src="ML-Foundations//image-20210925153331652.png" alt="image-20210925153331652" style="zoom:50%;" />
+
+<blockquote>
+<p>如果能用dichotomy set的大小，即|H(x1,x2,…)|替换hoeffding不等式中的M就好了</p>
+</blockquote>
+<p>dichotomy set的数量|H(x1,x2,…)|和选的点有关，即使是选择同样多的输入点，能得到的⭕和❌组合的数量也不一定相同，例如当感知机有三个输入时，如果共线则|H(x1,x2,…)|=6，不共线则|H(x1,x2,…)|=8。所以为了不依赖于选点的方式，定义<font color='orange'><strong>mH</strong></font>如下，它是N的函数，叫做<font color='orange'><strong>成长函数</strong></font>。并且<font color='orange'><strong>mH(N)≤2^N</strong></font></p>
+<img src="ML-Foundations//image-20210925154455418.png" alt="image-20210925154455418" style="zoom:50%;" />
+
+<p>特别地，如果<font color='orange'><strong>mH(N)=2^N</strong></font>，叫做假说集合H能够<font color='red'><strong>shatter</strong></font>这N个输入点。</p>
+<p>依然以感知机为例，N=1~4时，mH(N)如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">N</th>
+<th align="center">mH(N)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">max(…,6,8)=8</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">14<font color='orange'>&lt;2^N</font></td>
+</tr>
+</tbody></table>
+<h3 id="几个简单假说集的成长函数"><a href="#几个简单假说集的成长函数" class="headerlink" title="几个简单假说集的成长函数"></a>几个简单假说集的成长函数</h3><p>直接写感知机假说集合的有亿点困难，先从更简单的假说集开始。</p>
+<h4 id="Positive-Rays-1D-perceptron"><a href="#Positive-Rays-1D-perceptron" class="headerlink" title="Positive Rays(1D perceptron)"></a>Positive Rays(1D perceptron)</h4><img src="ML-Foundations//image-20210925155806211.png" alt="image-20210925155806211" style="zoom:50%;" />
+
+<p>输入是数轴上的实数，输出是⭕或❌，判断的规则是如果输入超过某个门槛值a，就判为⭕，反之为❌。即所有的假说可以用<code>h(x)=sign(x-a)</code>来表示。</p>
+<p>对于这种假说集，<code>mH(N)=N+1</code></p>
+<h4 id="Positive-Intervals-interval之内判为正"><a href="#Positive-Intervals-interval之内判为正" class="headerlink" title="Positive Intervals(interval之内判为正)"></a>Positive Intervals(interval之内判为正)</h4><img src="ML-Foundations//image-20210925161308824.png" alt="image-20210925161308824" style="zoom:50%;" />
+
+<p>输入是数轴上的实数，输出是⭕或❌，判断的规则是如果输入在一定的区间之内，就判为⭕，反之为❌。</p>
+<p>对于这种假说集，对于N个输入点，有N+1个区块，从中选两个出来即可作为一个interval，最后还要加上interval起点终点相同的情形(全部输出❌)，也就是说<code>mH(N)=C(N+1,2)+1</code></p>
+<h4 id="凸集合-shatter-example"><a href="#凸集合-shatter-example" class="headerlink" title="凸集合-shatter example"></a>凸集合-<font color='red'>shatter </font>example</h4><img src="ML-Foundations//image-20210925163132251.png" alt="image-20210925163132251" style="zoom:50%;" />
+
+<p>输入是一个圆上的N个点，输出是⭕或❌。这种情况下每种dichotomy都能实现。<code>mH(N)=2^N</code></p>
+<h3 id="假说集的break-point"><a href="#假说集的break-point" class="headerlink" title="假说集的break point"></a>假说集的<font color='orange'>break point</font></h3><p>对于2D感知机来说，当N≤3的时候，<code>mH(N)=2^N</code>，即能够shatter的最大点数为3。当N=4的时，假说集无法shatter，将4称作集的<font color='orange'><strong>break point</strong></font>。</p>
+<p>如果k是break point，<code>mH(N)＜2^N</code>，并且大于k的数也都是break point。</p>
+<p>总结一下前面提到的几种假说集合的break point：</p>
+<table>
+<thead>
+<tr>
+<th align="center">假说集</th>
+<th align="center">mH(N)</th>
+<th align="center">breakpoint</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Positive Rays</td>
+<td align="center">N+1</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">Positive Intervals</td>
+<td align="center">N(N+1)/2+1</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">凸集合</td>
+<td align="center">2^N</td>
+<td align="center">不存在</td>
+</tr>
+<tr>
+<td align="center">2D感知机</td>
+<td align="center">暂时还不知道</td>
+<td align="center">4</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>一个猜想：</p>
+<p>如果存在break point，mH(N)的成长阶数是N^(k-1)阶的，其中k是break point</p>
+</blockquote>
+<h3 id="bounding-function"><a href="#bounding-function" class="headerlink" title="bounding function"></a>bounding function</h3><h4 id="mH-N-与break-point的关系"><a href="#mH-N-与break-point的关系" class="headerlink" title="mH(N)与break point的关系"></a>mH(N)与break point的关系</h4><p>“一个假说集合的break point在k=2的地方”传递了什么信息？</p>
+<ul>
+<li>输入只有一个点时，能够产生两种dichotomy</li>
+<li>输入如果有两个点，由于k=2，所以mH(N)&lt;2^2，即最多能够产生3种dichotomy</li>
+<li>如果输入有三个点，随便找两个点都无法shatter(产生4种不同的⭕/❌组合)，经过排列组合可以发现，最多只有4种dichotomy的组合(4&lt;&lt;2^3)</li>
+</ul>
+<blockquote>
+<p><strong><font color='orange'>break point k restricts maximum possible mH(N) a lot for N&gt;k</font></strong></p>
+</blockquote>
+<h4 id="bounding-function-B-N-k"><a href="#bounding-function-B-N-k" class="headerlink" title="bounding function:B(N,k)"></a>bounding function:B(N,k)</h4><blockquote>
+<p>原称为迄今为止本篇中最精彩的部分</p>
+</blockquote>
+<p>已知成长函数mH(N)的break point是k，即有N个点，任何k个点不能被shatter，bounding function返回的是这个成长函数最多有多少种dichotomy的组合。(bounding fucntion是N和k的函数，而不用关心成长函数具体的样子)</p>
+<blockquote>
+<p>new goal：上限函数是否被一个N的多项式限制？即B(N,k)是否≤poly(N)?</p>
+</blockquote>
+<hr>
+
+<p>下面填B(N,k)的表，已知的值如下：</p>
+<img src="ML-Foundations/image-20210925221017033.png" alt="image-20210925221017033" style="zoom:50%;" />
+
+<ul>
+<li><p>B(2,2)=3，有两个点，break point对应的k=2，即任意两个点都不能被shatter，所以dichotomy组合最多有3种</p>
+<p>类似可以知道，当N=k时，dichotomy组合最多有2^N-1种(这很显然，因为K.O不掉N个点)，所以B(N,k)=2^N-1</p>
+</li>
+<li><p>B(3,2)=4，有三个点，其中任意两个点都不能被shatter，最多有4种组合</p>
+<blockquote>
+<p>例如下面这组：</p>
+<p>⭕⭕⭕</p>
+<p>⭕⭕❌</p>
+<p>⭕❌⭕</p>
+<p>❌❌⭕</p>
+</blockquote>
+</li>
+<li><p>B(N,1)=1，有N个点，但是连一个点都没法shatter，即不管有多少个点，都只有一种组合</p>
+</li>
+<li><p>B(N,k)=2^N for N&lt;k，如果点数小于break point对应的数量，那么都被K.O.了(all shattered)</p>
+</li>
+</ul>
+<hr>
+没填的部分，以B(4,3)为例(四个点，<font color='red'>任意3个不能被shatter</font>)，程序穷举出一种如下，共11种
+
+<img src="ML-Foundations/image-20210925231948633.png" alt="image-20210925231948633" style="zoom:50%;" />
+
+<p>这11种可以根据x4人为分为两组，<font color='orange'><strong>pair</strong></font>组和<font color='purple'><strong>single</strong></font>组</p>
+<img src="ML-Foundations/image-20210925232344731.png" alt="image-20210925232344731" style="zoom:50%;" />
+
+<p>那么B(4,3)=11=2α+β，α为pair数，β为single数</p>
+<img src="ML-Foundations/image-20210925232601687.png" alt="image-20210925232601687" style="zoom:50%;" />
+
+<ul>
+<li><p>将x4遮起来，只看三个输入：x1,x2,x3，共有α+β组，B(4,3)意味着<font color='red'>任意3个不能被shatter</font>，所以α+β≤B(3,3)</p>
+<img src="ML-Foundations/image-20210925232804146.png" alt="image-20210925232804146" style="zoom:50%;" /></li>
+<li><p>下面只看x4成对的部分，对于这部分来说，x4已经存在两种可能了(shattered)，剩下的部分(即α组内的x1,x2,x3)必然不会存在能被shatter的两个点，因此α≤B(3,2)</p>
+</li>
+<li><p>总结一下：B(4,3)=2α+β≤B(3,3)+B(3,2)</p>
+</li>
+<li><p>推广：<code>B(N,k)=2α+β≤B(N-1,k)+B(N-1,k-1)</code></p>
+</li>
+</ul>
+<p>有了上面的式子，可以得到上限的上限</p>
+<blockquote>
+<p>成长函数mH(N)-&gt;上限函数B(N,k)-&gt;上限的上限 </p>
+</blockquote>
+<img src="ML-Foundations/image-20210926000156771.png" alt="image-20210926000156771" style="zoom:50%;" />
+
+<p><strong>可以(用数学归纳法)证明：</strong></p>
+<img src="ML-Foundations/image-20210926000606557.png" alt="image-20210926000606557" style="zoom:50%;" />
+
+<p>有了这个式子，可以验证前面的结果，并找到2D感知机成长函数的上限的上限</p>
+<table>
+<thead>
+<tr>
+<th align="center">假说集</th>
+<th align="center">mH(N)</th>
+<th align="center">breakpoint</th>
+<th align="center">mH(N)上限的上限</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Positive Rays</td>
+<td align="center">N+1</td>
+<td align="center">2</td>
+<td align="center">N+1</td>
+</tr>
+<tr>
+<td align="center">Positive Intervals</td>
+<td align="center">N(N+1)/2+1</td>
+<td align="center">3</td>
+<td align="center">N(N+1)/2+1</td>
+</tr>
+<tr>
+<td align="center">2D感知机</td>
+<td align="center">暂时还不知道</td>
+<td align="center">4</td>
+<td align="center">(N^3)/6+5N/6+1</td>
+</tr>
+</tbody></table>
+<h3 id="hoeffding不等式在无限多假说的假说集下的表示-VC-bound"><a href="#hoeffding不等式在无限多假说的假说集下的表示-VC-bound" class="headerlink" title="hoeffding不等式在无限多假说的假说集下的表示-VC bound"></a>hoeffding不等式在无限多假说的假说集下的表示-<font color='orange'>VC bound</font></h3><p>在无限多假说的假说集中，hoeffding并直接将成长函数代入</p>
+<img src="ML-Foundations/image-20210926003042057.png" alt="image-20210926003042057" style="zoom:50%;" />
+
+<p>当N足够大的时候，其实是下面这个样子(<font color='red'>quite technical proof,<strong>skip</strong></font>)，全名叫<font color='orange'>Vapnik-Chervonenkis bound</font></p>
+<img src="ML-Foundations/image-20210926003116356.png" alt="image-20210926003116356" style="zoom:50%;" />
+
+<h2 id="VC-dimension-ML最重要的工具"><a href="#VC-dimension-ML最重要的工具" class="headerlink" title="VC dimension-ML最重要的工具"></a><font color='orange'>VC dimension</font>-ML最重要的工具</h2><p>开始之前，对成长函数上限的上限再找个上限(为的是后续表述的方便)。成长函数上限的上限被下面所示的多项式函数bound住：</p>
+<img src="ML-Foundations/image-20210926004854869.png" alt="image-20210926004854869" style="zoom:50%;" />
+
+<p>对比B(N,k)和N^(k-1)两个表格可以发现，当N&gt;2，k&gt;3的时候，上限函数B(N,k)不会超过N^(k-1)</p>
+<img src="ML-Foundations/image-20210926005026637.png" alt="image-20210926005026637" style="zoom:50%;" />
+
+<p>即：</p>
+<img src="ML-Foundations/image-20210926005144859.png" alt="image-20210926005144859" style="zoom:50%;" />
+
+<p>所以k&gt;3的时候，对于足够的样本数N，都可以保证演算法选到的g的Ein与Eout大概率比较接近</p>
+<img src="ML-Foundations/image-20210926005513968.png" alt="image-20210926005513968" style="zoom:50%;" />
+
+<p>理论上，机器学习的可行性由下面几条保证(1+2保证了Eout接近Ein，3保证能找到小的Ein)</p>
+<ol>
+<li>有好的假说集(成长函数在某个地方break)</li>
+<li>有够多的数据</li>
+<li>好的演算法</li>
+<li>亿点点好的运气</li>
+</ol>
+<p>说了这么多，VC维到底是什么呢？</p>
+<p><font color='orange'> <strong>VC dimension is the formal name of maximum non-break point</strong></font></p>
+<p>它是假说集的一个性质，用<code>d_vc(H)</code>表示，意味着这个假说集可以shatter掉这么多的点。如果不存在break point，那么VC维显然就是无限大(这种假说集合是不好的)。</p>
+<p>到这里，这节开篇的式子可以用VC维表示了：</p>
+<img src="ML-Foundations/image-20210926010638059.png" alt="image-20210926010638059" style="zoom:50%;" />
+
+<h3 id="多维感知机的VC-dimension"><a href="#多维感知机的VC-dimension" class="headerlink" title="多维感知机的VC dimension"></a>多维感知机的VC dimension</h3><table>
+<thead>
+<tr>
+<th align="center">感知机维度d</th>
+<th align="center">d_vc</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">3</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>一个朴素的猜想，d_vc=d+1。下面尝试证明，分为两步</p>
+<ol>
+<li>d_vc≥d+1：即可以找到一组被shatter的d+1维资料</li>
+<li>d_vc≤d+1：找不到任何一组能被shatter的d+2维资料</li>
+</ol>
+</blockquote>
+<p>再来想一下shatter的含义，如果一个假说集合能够shatter掉d+1笔资料，意味着对任意的<em><strong>y</strong></em>∈{+1,-1}^(d+1)，都能找到一个<em><strong>w</strong></em>，使sign(<strong>Xw</strong>)=<em><strong>y</strong></em>，其中<strong>X</strong>是由一个个<em><strong>x</strong></em>向量的转置拼接成的矩阵。</p>
+<p>现在要证明上面提到的第一点，也就是如果能找到一组d+1维的资料以及一个<em><strong>w</strong></em>，使sign(<strong>Xw</strong>)=<em><strong>y</strong></em>就行了。d+1笔资料如下构造，找d+1个d维的点(x0,x1,…,xd)，其中x0和前面一样，是1，是为了与w0匹配而加进去的，而w0是-threshold，</p>
+<img src="ML-Foundations/image-20210926141737468.png" alt="image-20210926141737468" style="zoom:50%;" />
+
+<p>如果能找到sign(<strong>Xw</strong>)=<em><strong>y</strong></em>就行了，显然，如果<strong>Xw=y</strong>也行，上面构造出来的<strong>X</strong>是可逆的，所以<em><strong>w</strong></em>一定是存在的。在这组特别的资料上，d+1笔资料被shatter，所以d_vc≥d+1</p>
+<hr>
+
+<p>证明第二部分之前，先尝试从矩阵的角度分析为什么二维感知机无法shatter掉4笔资料。在二维平面上找四个点，(0,0),(1,0),(0,1),(1,1)，X矩阵如下</p>
+<img src="ML-Foundations/image-20210926150040602.png" alt="image-20210926150040602" style="zoom:50%;" />
+
+<p>显然这四个点是没法被shatter的，举个例子，下图❓的部分不可能是❌</p>
+<img src="ML-Foundations/image-20210926150216838.png" alt="image-20210926150216838" style="zoom:50%;" />
+
+<p>数学上这是有原因的。x4可以被x1,x2,x3线性表示：<code>x4=x2+x3-x1</code></p>
+<p>两边乘w的转置，在上图所示的例子中，等式右边：w与x1的内积为负，w与x2的内积为正，w与x3的内积为正，再看等式左边，w与x4的内积结果是确定的了，因此x4不自由，不可能被shatter。</p>
+<p>一个重要的结论：<font color='orange'><strong>linear dependency restricts dichotomy</strong></font></p>
+<hr>
+
+<p>d+2笔资料构成一个大的矩阵<strong>X</strong>，矩阵的维度是(d+2)*(d+1)，也就是说有d+2个d+1维的向量，必线性相关，存在一个向量可以被其他向量线性表示：</p>
+<img src="ML-Foundations/image-20210926143435464.png" alt="image-20210926143435464" style="zoom:50%;" />
+
+<p>上图所示的例子中， x_(d+2)可以被其他d+1个向量线性表示，所以w与之的内积的值的正负号是确定的。所以这个点无法被shatter，任何d+2笔数据都无法被shatter，即d_vc≤d+1</p>
+<blockquote>
+<p>这里其实在说明，对于样本点数量大于其维度的情况，即矩阵行数大于列数，则一定线性相关，某一列一定可以由其他列线性表示，此时该列是正类还是负类已经是确定的了（因为受其他列控制），是无法被shatter的</p>
+</blockquote>
+<h3 id="VC-dimension与假说集的自由度-模型复杂度"><a href="#VC-dimension与假说集的自由度-模型复杂度" class="headerlink" title="VC dimension与假说集的自由度(模型复杂度)"></a>VC dimension与假说集的自由度(模型复杂度)</h3><p>VC维告诉我们什么时候还能产生最多的dichotomy，体现假说集到底有多强。 </p>
+<p>不严谨地说，VC维可以近似看作自由参数的数量。</p>
+<blockquote>
+<p>positive rays中，d_vc=1，自由参数是阈值</p>
+<p>positive interval中，d_vc=2，自由参数是两个阈值</p>
+<img src="ML-Foundations/image-20210926153019095.png" alt="image-20210926153019095" style="zoom: 50%;" />
+</blockquote>
+<p>有了VC维之后，2.1节中的表格可以改一下了，VC维替代了以前有限假说中假说数量M的角色</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">VC维小</th>
+<th align="center">VC维大</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">优</td>
+<td align="center">踩雷(Ein和Eout不接近)的概率低</td>
+<td align="center">lots of power</td>
+</tr>
+<tr>
+<td align="center">劣</td>
+<td align="center">too limited power</td>
+<td align="center">踩雷概率变大，Ein与Eout有多接近的保证比较弱</td>
+</tr>
+</tbody></table>
+<p>VC维给今后模型选择提供了一些参考。</p>
+<h3 id="深入理解VC-Bound"><a href="#深入理解VC-Bound" class="headerlink" title="深入理解VC Bound"></a><font color='orange'>深入理解VC Bound</font></h3><h4 id="模型复杂度"><a href="#模型复杂度" class="headerlink" title="模型复杂度"></a>模型复杂度</h4><p>先回顾一下VC bound的式子</p>
+<img src="ML-Foundations/image-20210926153835240.png" alt="image-20210926153835240" style="zoom:50%;" />
+
+<p>不等式右边的部分用δ替换，ε用δ可以表示如下：</p>
+<img src="ML-Foundations/image-20210926154426912.png" alt="image-20210926154426912" style="zoom:50%;" />
+
+<p>抽象来看，就是坏事情发生的概率不超过δ，反过来看，Ein与Eout的差距不超过ε的概率≥1-δ</p>
+<img src="ML-Foundations/image-20210926154833064.png" alt="image-20210926154833064" style="zoom:50%;" />
+
+<blockquote>
+<p>几个注解：</p>
+<ul>
+<li>|Ein-Eout|叫做泛化误差</li>
+<li>Eout有一个置信区间，关心的是它的上届</li>
+<li>根号下的部分代表了在泛化的时候要为模型复杂度付出的代价</li>
+</ul>
+</blockquote>
+<p>也就是说，下面的式子以高概率成立</p>
+<img src="ML-Foundations/image-20210926155504214.png" alt="image-20210926155504214" style="zoom:50%;" />
+
+<p>这告诉我们什么呢？</p>
+<ol>
+<li>VC维越大，模型复杂度越高，模型复杂度带来的惩罚也就越大</li>
+<li>VC维越大，可以shatter的点就越多，在合理的演算法的加持下，Ein会变小</li>
+<li>Eout常常会像下图所示这样</li>
+</ol>
+<img src="ML-Foundations/image-20210926155334888.png" alt="image-20210926155334888" style="zoom: 67%;" />
+
+<p>如果只想着用powerful hypothesis set将Ein做到很低，Eout可能飞出去了。好的VC维应该设计在中间的位置</p>
+<img src="ML-Foundations/image-20210926155955855.png" alt="image-20210926155955855" style="zoom:50%;" />
+
+<h4 id="样本复杂度"><a href="#样本复杂度" class="headerlink" title="样本复杂度"></a>样本复杂度</h4><p> 经验上，资料量<code>N≈1-d_vc</code>的时候，就可以获得不错的表现，也就是说VC bound是很宽松的</p>
+<blockquote>
+<p>这种宽松与上限的上限的上限等等方面有关</p>
+</blockquote>
+<h2 id="噪声与Error-measure-lesson8"><a href="#噪声与Error-measure-lesson8" class="headerlink" title="噪声与Error measure(lesson8)"></a><font color='green'>噪声与Error measure(lesson8)</font></h2><h3 id="Error-measure"><a href="#Error-measure" class="headerlink" title="Error measure"></a>Error measure</h3><p>如何衡量g与f的差距？即：如何设计误差函数E(g,f)?</p>
+<ul>
+<li><p>0/1 error：often for classification</p>
+<img src="ML-Foundations/image-20210926165420114.png" alt="image-20210926165420114" style="zoom:50%;" /></li>
+<li><p>squared error：often for regression</p>
+<img src="ML-Foundations/image-20210926165520635.png" alt="image-20210926165520635" style="zoom:50%;" /></li>
+</ul>
+<h3 id="有关cost、loss、error的一些想法"><a href="#有关cost、loss、error的一些想法" class="headerlink" title="有关cost、loss、error的一些想法"></a>有关cost、loss、error的一些想法</h3><p>对于犯的错误，要付出一定的成本，产生一定的损失，三者说的是一件事</p>
+<h1 id="机器是如何学习的？"><a href="#机器是如何学习的？" class="headerlink" title="机器是如何学习的？"></a>机器是如何学习的？</h1><h2 id="linear-regression"><a href="#linear-regression" class="headerlink" title="linear regression"></a>linear regression</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>以信用卡额度为例，输入为用户的各种信息，输出是对各种特征的加权和，是一个实数。</p>
+<img src="ML-Foundations/image-20210927084256216.png" alt="image-20210927084256216" style="zoom:50%;" />
+
+<p>线性回归的目的是<font color='orange'>find hyperplanes with small residuals</font>。常用的error measure是squared error：</p>
+<img src="ML-Foundations/image-20210927001515999.png" alt="image-20210927001515999" style="zoom:50%;" />
+
+<p>接下来的问题就在这个error measure之下，如何使Ein变得足够小</p>
+<img src="ML-Foundations/image-20210927002420007.png" alt="image-20210927002420007" style="zoom:50%;" />
+
+<blockquote>
+<p><font color='orange'>Ein是一个可微的凸函数</font></p>
+</blockquote>
+<h3 id="线性回归演算法"><a href="#线性回归演算法" class="headerlink" title="线性回归演算法"></a>线性回归演算法</h3><p>Ein(<em><strong>w</strong></em>)最小的地方的梯度为0，因此现在的任务就是找到使得Ein(<em><strong>w</strong></em>)梯度为0的<em><strong>w_lin</strong></em>(至于为什么叫这个名字，看看本小节的标题就懂了)</p>
+<img src="ML-Foundations/image-20210927002800497.png" alt="image-20210927002800497" style="zoom:50%;" />
+
+<p>为了接下来方便计算梯度，Ein(<em><strong>w</strong></em>)展开写成下面的样子：</p>
+<img src="ML-Foundations/image-20210927003203922.png" alt="image-20210927003203922" style="zoom:50%;" />
+
+<blockquote>
+<p><font color='orange'>A是一个对称矩阵</font></p>
+</blockquote>
+<p>开始计算梯度。左边展示的是<em><strong>w</strong></em>只有一个维度的样子，右边展示的是向量形式，结果很漂亮:)</p>
+<img src="ML-Foundations/image-20210927003340129.png" alt="image-20210927003340129" style="zoom:50%;" />
+
+<p>令梯度为0，两种情形：</p>
+<img src="ML-Foundations/image-20210927003720404.png" alt="image-20210927003720404" style="zoom:50%;" />
+
+<p>如果(X^T)X是可逆的，<em><strong>w_lin</strong></em>轻轻松松</p>
+<img src="ML-Foundations/image-20210927003839100.png" alt="image-20210927003839100" style="zoom:50%;" />
+
+<blockquote>
+<p>这里面大括号括起来的部分叫做<font color='orange'>伪逆矩阵</font></p>
+</blockquote>
+<p>如果不可逆，可能会有很多组解，可以用伪逆矩阵求得其中一组解</p>
+<img src="ML-Foundations/image-20210927004617104.png" alt="image-20210927004617104" style="zoom: 50%;" />
+
+<hr>
+
+<p>总结一下，可以用下面的方式获得<em><strong>w_lin</strong></em>，用这个<em><strong>w</strong></em>可以得到最小的Ein</p>
+<ol>
+<li><p>对于给的样本数据D，构造出矩阵X和向量y</p>
+<img src="ML-Foundations/image-20210927004749022.png" alt="image-20210927004749022" style="zoom:50%;" /></li>
+<li><p>计算伪逆矩阵</p>
+<blockquote>
+<p>这并不像看起来这么简单，一些数值分析的工具把伪逆矩阵封装成了一个函数，其实内部隐藏了很多的计算</p>
+</blockquote>
+<img src="ML-Foundations/image-20210927004822811.png" alt="image-20210927004822811" style="zoom:50%;" /></li>
+<li><p>伪逆矩阵乘以y，得到使Ein最小的<code>w_lin</code></p>
+<img src="ML-Foundations/image-20210927004852111.png" alt="image-20210927004852111" style="zoom:50%;" /></li>
+<li><p>有了这个<code>w_lin</code>之后，对于新的一个数据<code>xn</code>，如何得到它的linear regression的值呢?</p>
+<img src="ML-Foundations/image-20210927090106887.png" alt="image-20210927090106887" style="zoom:50%;" />
+
+<p>如果输入是由n个<em><strong>x</strong></em>拼成的矩阵<strong>X</strong>，那么预测得到的输出向量***y_hat=X(w_lin)***，即：</p>
+<img src="ML-Foundations/image-20210927090822030.png" alt="image-20210927090822030" style="zoom:50%;" /></li>
+</ol>
+<h3 id="泛化相关的问题-P36"><a href="#泛化相关的问题-P36" class="headerlink" title="泛化相关的问题(P36)"></a><font color='green'>泛化相关的问题</font>(P36)</h3><p>linear regression有封闭解，下面计算它的Ein是多少</p>
+<img src="ML-Foundations/image-20210927091454663.png" alt="image-20210927091454663" style="zoom:50%;" />
+
+<blockquote>
+<p>X与X伪逆矩阵的乘积称作<font color='orange'>帽子矩阵</font>，因为这个矩阵乘以y即可得到y_hat</p>
+</blockquote>
+<p>下面来看看帽子矩阵H做了什么</p>
+<img src="ML-Foundations/image-20210927105558433.png" alt="image-20210927105558433" style="zoom:50%;" />
+
+<blockquote>
+<ol>
+<li>y_hat在X的列向量张成空间(下图红色区域)中</li>
+<li>Ein最小，就是要使得y-y_hat最小，当y-y_hat与X列向量张成的空间正交的时候，才会最小</li>
+<li>帽子矩阵H作用在y上面就得到了y_hat，因此H矩阵的作用就是将y投影成y_hat，投影后位于X列向量张成的空间中</li>
+<li>y-Hy得到了从Hy的末尾指向y末尾的向量，因此(I-H)也可以看作一个变换，作用在y上面的效果是把y投影成y-Hy，投影后的向量正交于X列向量所张成的空间</li>
+</ol>
+<img src="ML-Foundations/image-20210927110538834.png" alt="image-20210927110538834" style="zoom:50%;" />
+</blockquote>
+<blockquote>
+<p>下面听得有些迷糊..</p>
+<p><font color='green'>claim:<code>trace(I-H)=N-(d+1)</code></font></p>
+<p><font color='green'>trace和自由度、能量的关系是？</font></p>
+<img src="ML-Foundations/image-20210927195027265.png" alt="image-20210927195027265" style="zoom:50%;" />
+
+<img src="ML-Foundations/image-20210927195040057.png" alt="image-20210927195040057" style="zoom:50%;" />
+
+<p>learning curve(配合<a target="_blank" rel="noopener" href='https://blog.csdn.net/SanyHo/article/details/107511919'>这篇文章</a>食用更佳)</p>
+<img src="ML-Foundations/image-20210927195314258.png" alt="image-20210927195314258" style="zoom:50%;" />
+
+<blockquote>
+<p>Eout——-validation set error</p>
+<p>Ein———train set error</p>
+<p>当资料量比较少的时候，模型能很好地拟合它们，但泛化能力很差，Ein很小，Eout很大；</p>
+<p>资料量增加的时候，由于数据中存在噪声，Ein逐渐增大并趋于稳定</p>
+</blockquote>
+</blockquote>
+<h3 id="使用线性回归做线性分类"><a href="#使用线性回归做线性分类" class="headerlink" title="使用线性回归做线性分类"></a>使用线性回归做线性分类</h3><p>对比一下目前接触到的线性分类与线性回归：</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">linear classification</th>
+<th align="center">linear regression</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">output space</td>
+<td align="center">{+1,-1}</td>
+<td align="center">R</td>
+</tr>
+<tr>
+<td align="center">hypothesis set</td>
+<td align="center"><img src="ML-Foundations/image-20210927192211495.png" alt="image-20210927192211495" style="zoom:50%;" /></td>
+<td align="center"><img src="ML-Foundations/image-20210927192222760.png" alt="image-20210927192222760" style="zoom:50%;" /></td>
+</tr>
+<tr>
+<td align="center">error measure</td>
+<td align="center"><img src="ML-Foundations/image-20210927192233866.png" alt="image-20210927192233866" style="zoom:50%;" /></td>
+<td align="center"><img src="ML-Foundations/image-20210927192243354.png" alt="image-20210927192243354" style="zoom:50%;" /></td>
+</tr>
+</tbody></table>
+<p>分类是个NP-hard的问题，而线性回归有封闭的解，那么能否用线性回归来解分类的问题呢？</p>
+<p>两者最大的区别是错误衡量的方式，如果真实的y=1，那么err与(w^T)x的关系如下：</p>
+<img src="ML-Foundations/image-20210927192718940.png" alt="image-20210927192718940" style="zoom:50%;" />
+
+<p>真实的y=-1时，关系如下：</p>
+<img src="ML-Foundations/image-20210927192802299.png" alt="image-20210927192802299" style="zoom:50%;" />
+
+<p>可以发现，线性分类的输出空间为±1时，<font color='red'>平方错误</font>比<font color='blue'>0/1错误</font>更大。</p>
+<img src="ML-Foundations/image-20210927193557595.png" alt="image-20210927193557595" style="zoom:50%;" />
+
+<p>根据VC bound的理论，如果<font color='red'>平方错误</font>可以变得很低，那么线性分类的Eout也不会太差</p>
+<blockquote>
+<p>用更宽松的bound换来了更高的计算效率</p>
+</blockquote>
+<p>所以实际中<font color='orange'>可以</font>用线性回归做线性分类；还可以用线性回归得到的<em><strong>w_lin</strong></em>作为线性分类的初始向量。</p>
+<h2 id="logistic-regression"><a href="#logistic-regression" class="headerlink" title="logistic regression"></a>logistic regression</h2><blockquote>
+<p>soft binary classification</p>
+</blockquote>
+<h3 id="问题描述-1"><a href="#问题描述-1" class="headerlink" title="问题描述"></a>问题描述</h3><p>给一个患者的相关数据，目的是得到这个人患心脏病的概率。</p>
+<img src="ML-Foundations/image-20210927201448031.png" alt="image-20210927201448031" style="zoom:50%;" />
+
+<p>所期望的理想的数据的样子：对于每个病人，都有一个ta患有心脏病的概率(0~1之间的值)。然而这个值是拿不到的，真实的数据只能看得到某个输入下的输出是0还是1。真实的数据可以看成是理想数据的加噪版本。</p>
+<h3 id="logistic-hypothesis"><a href="#logistic-hypothesis" class="headerlink" title="logistic hypothesis"></a>logistic hypothesis</h3><p>没错，依然是基于特征的加权和。</p>
+<p>假设病人的特征有d个维度，因此输入是d+1维的向量。首先加权求和</p>
+<img src="ML-Foundations/image-20210927202045085.png" alt="image-20210927202045085" style="zoom:50%;" />
+
+<p>为了将输出映射到0,1之间，使用了logistic函数，记为θ(·)</p>
+<table>
+<thead>
+<tr>
+<th align="center">图形</th>
+<th align="center">表达式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="ML-Foundations/image-20210927202200779.png" alt="image-20210927202200779"></td>
+<td align="center"><img src="ML-Foundations/image-20210927202417483.png" alt="image-20210927202417483" style="zoom:50%;" /></td>
+</tr>
+</tbody></table>
+<p>综合起来logistic hypothesis如下：</p>
+<img src="ML-Foundations/image-20210927202700812.png" alt="image-20210927202700812" style="zoom:50%;" />
+
+<h3 id="error-measure"><a href="#error-measure" class="headerlink" title="error measure"></a>error measure</h3><img src="ML-Foundations/image-20210927202949619.png" alt="image-20210927202949619" style="zoom:50%;" />
+
+<p>如何度量错误?换句话说，如何衡量f和h之间接近的程度？</p>
+<blockquote>
+<p>logistic regression中的最大似然与最小error是一回事</p>
+</blockquote>
+<p>回到心脏病的例子中，关心的是<code>P(+1|x)</code>，<font color='orange'>反过来看</font>，P(y|x)根据y的不同可以写成如下的式子：</p>
+<img src="ML-Foundations/image-20210928154143450.png" alt="image-20210928154143450" style="zoom:50%;" />
+
+<p>对于一笔资料<code>D=&#123;(x1,+1),(x2,-1),...,(xn,-1)&#125;</code>，产生它的几率应该是多少呢？很简单，是<code>P(x1)P(+1|x1)P(x2)P(-1|x2)···P(xn)P(-1|xn)</code>，根据上面的P(y|x)表达式，可以将这笔资料D产生的概率写成<code>P(x1)f(x1)P(x2)[1-f(x2)]···P(xn)[1-f(xn)]</code>， </p>
+<p>如果h和f很接近的话(err很小，h是好的)，那么用h产生这笔资料的可能性也近似为<code>P(x1)h(x1)P(x2)[1-h(x2)]···P(xn)[1-h(xn)]</code></p>
+<p>适用logistic函数作为h时，有一个性质：<code>1-h(x)=h(-x)</code>，所以上面说的用h产生这笔资料的可能性可以写成：<code>P(x1)h(x1)P(x2)h(-x2)···P(xn)h(-xn)]</code>，不失一般性，对于任意一笔资料<code>D=&#123;(x1,y1),(x2,y2),...,(xn,yn)&#125;</code>，h产生这笔资料的可能性为</p>
+<p><code>P(x1)h(y1x1)P(x2)h(y2x2)···P(xn)h(ynxn)]</code></p>
+<p>要注意到，无论对于什么h，任意一个xi的概率P(xi)都是不变的，。也就是说对于一个logistic的h，这个h产生一笔资料D的likelihood正比于h(ynxn)的连乘</p>
+<img src="ML-Foundations/image-20210928155853290.png" alt="image-20210928155853290" style="zoom:50%;" />
+
+<p>要做的是找一个w，使得上图右边的连乘部分最大，带入h(·)的定义，也就是要使下面的式子最大</p>
+<img src="ML-Foundations/image-20210928160128565.png" alt="image-20210928160128565" style="zoom:50%;" />
+
+<p>连乘-&gt;连加</p>
+<img src="ML-Foundations/image-20210928160236117.png" alt="image-20210928160236117" style="zoom:50%;" />
+
+<p>现在是最大化一个式子，和之前接触到的最小化一个式子有些许区别，因此两边乘(-1)，变成最小化的式子，这个需要最小化的式子也就自然充当了Ein的角色。(这里不嫌烦的话，就偷偷计算一个平均，看起来更像是Ein的形式)</p>
+<img src="ML-Foundations/image-20210928160447822.png" alt="image-20210928160447822" style="zoom:50%;" />
+
+<p>将logistic表达式代入，变成了最小化下面的式子</p>
+<img src="ML-Foundations/image-20210928160805583.png" alt="image-20210928160805583" style="zoom:50%;" />
+
+<blockquote>
+<p>这个error又叫cross entropy error</p>
+</blockquote>
+<h3 id="optimization"><a href="#optimization" class="headerlink" title="optimization"></a>optimization</h3><h1 id="机器如何才能学得更好？"><a href="#机器如何才能学得更好？" class="headerlink" title="机器如何才能学得更好？"></a>机器如何才能学得更<font color ='orange'>好</font>？</h1>
     </div>
 
     
